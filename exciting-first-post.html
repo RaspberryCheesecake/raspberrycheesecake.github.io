@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hannah Clare Wray Hazi | Moving to Pelican</title>
+    <link rel="shortcut icon" type="image/png" href="./favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./theme/css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/print.css" type="text/css" media="print" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="" />
+    <meta name="author" content="Hannah Hazi" />
+
+    <meta name="keywords" content="first" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="./pages/about.html">About Me</a></li>
+                <li><a href="https://github.com/raspberrycheesecake">GitHub</a></li>
+                <li><a href="mailto:hannah.hazi@cantab.net">Contact Me</a></li>
+                <li><a href="https://uk.linkedin.com/in/hannah-hazi-9b985a84">LinkedIn</a></li>
+                <li><a href="./archives">Archives</a></li>
+            </ul>
+        </nav>
+        <div class="header_box">
+            <h1><a href="./">Hannah Clare Wray Hazi</a></h1>
+            <h2>I love making beautiful things.</h2>
+        </div>
+    </header>
+    <div id="wrapper">
+        <div id="content">            <h4 class="date">Jan 17, 2017</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="./exciting-first-post.html" rel="bookmark" title="Permanent Link to &quot;Moving to Pelican&quot;">Moving to Pelican</a>
+                </h2>
+
+                
+                
+
+                <p>I decided to make a personal website a while back, to play around with web stuff for the first time. Taking the path of least resistance I used Github Pages - they give you a free 'Personal' static website which is rather nice. I cobbled together some CSS and HTML and made something that looked as if it had emerged from the 90s. It was perfectly fine for what I wanted to do, which was host little JavaScript games I was playing with writing - I had never written JavaScript before and wanted to give it a try.</p>
+<p>Now I'd like to make this website into a blogging platform, and make it look a bit better, too. Rather than hand-coding everything from scratch (and still having something that looks as if it emerged from the 90s), I wanted to start out with something I can modify for myself with only a bit of effort. </p>
+<p>I explored a bewildering range of different static website generators, trying to work out what I should use. According to <a href="https://www.staticgen.com/">this list</a> there are over 100 of these out in the wild now! Even narrowing myself down to only the Python flavours (on the theory that I want to be able to tinker deeply with the webpages I create) left me with far too much to choose from. So I asked around friends and on the advice of <a href="http://mcla.ug">Hannah McLaughlin</a> I went for Pelican.</p>
+<p>Getting Pelican up and running was not as easy as the docs would like you to believe (ah, if only...). So as nearly all first-time Pelican users must do, if the examples in the <a href="www.pelicanthemes.com">Pelican Themes</a> page are anything to go by, my first blog post here will be a tutorial - mostly for my own reference - on how to use Pelican. I found that <a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html">Amy Hanlon's post on the subject</a> was most helpful, as she doesn't tend to assume any 'obvious' prior knowledge from the reader.</p>
+<h1>First Steps</h1>
+<p>In the terminal, set up a new virtual environment for all your Pelican business (good practice). Then make a directory for the website and initialise Pelican in there. These steps went without incident.</p>
+<div class="highlight"><pre><span></span>mkvirtualenv pelican
+setvirtualenvproject
+workon pelican
+
+pip install pelican
+pip install Markdown
+mkdir Website
+cd Website
+pelican-quickstart
+</pre></div>
+
+
+<p>Pelican's quickstart does allow you to get off the ground pretty fast by setting things up the way you'd like after asking a series of questions. There was an option to say I wanted to upload my site using GitHub Pages - perfect. Say 'yes' to <code>auto-reload &amp; simple HTTP script to assist with developing theme</code> and to <code>create Fabfile/Makerfile</code>. It spits out some basics:</p>
+<div class="highlight"><pre><span></span>content            Makefile        pelicanconf.pyc
+develop_server.sh  output          publishconf.py
+fabfile.py         pelicanconf.py  
+</pre></div>
+
+
+<p><code>pelicanconf.py</code> is where your local configuration sits - that's what you want to alter when you're tweaking the webpages you display. <code>publishconf.py</code> is the file that deals with published web pages, eg analytics etc - we're not going to mess with that. <code>content</code> is the folder where you bung all your Markdown (.md) or reStructuredText (.rst) files for all those great blog posts. Pelican will also recognise the folder names <code>images</code> and <code>pages</code> automatically - these are where your pictures and the different webpages you create (aside from the blog posts) will go. <code>output</code> is the folder where the final CSS and HTML live, and it's the part that should be posted to wherever you're doing your web hosting.</p>
+<h1>Problem 1 - no Themes</h1>
+<p>I try and host my new website locally to see what it looks like - and it looks like crap! It's because I don't have any of the lovely themes loaded. I try exactly what the Pelican Themes page recommends: <code>git clone themes into ~/home/user/pelican-themes</code> and add a line in the <code>pelicanconf.py</code> file, like so:</p>
+<div class="highlight"><pre><span></span>THEMES = &quot;/home/user/pelican-themes/blue-penguin&quot;
+</pre></div>
+
+
+<p>Sanity check: do I have any themes installed?</p>
+<div class="highlight"><pre><span></span>(pelican)sandmanuser@sandman-VirtualBox:~/Website$ pelican-themes -l
+notmyidea
+simple
+</pre></div>
+
+
+<p>No. How strange. I did clone pelican-themes locally:</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/getpelican/pelican-themes
+</pre></div>
+
+
+<p>But since I didn't clone <code>--recursive</code>ly, the actual configuration files for each theme weren't copied. When I go in and look, it's just a bunch of empty folders. Yes, because now when I try to clone it takes <em>forever</em>! Now we're cooking on gas, and when I run <code>make html</code> and then <code>make serve</code> I see that it's looking pretty. Ctrl+C stops the server.</p>
+<h1>Problem 2 - not updating local server</h1>
+<p>I discover what must be another common problem - I go change a webpage to try something else out, hit <code>make serve</code> and find that it won't run:</p>
+<div class="highlight"><pre><span></span>socket.error: [Errno 98] Address already in use
+Makefile:77: recipe for target &#39;serve&#39; failed
+make: *** [serve] Error 1
+</pre></div>
+
+
+<p>Woops! Looks like I didn't actually switch off the server I made to try things out - it was still running in the background. It turns out the nicest way of dealing with this is to use the shell script they've kindly made for you - just run
+<code>./develop_server.sh start</code> and <code>./develop_server.sh stop</code>
+to start the development server and stop it again nicely. This also updates your webpages locally live - as soon as you make and save a change to them, the development server updates your webpage so you can see how things look in real time.</p>
+<h1>Why didn't you tell the world?</h1>
+<p>So far this website is only working on a little server-in-a-bottle we've created in our own computer. Time to take it to the web! Since I'm hosting my site with GitHub Pages, my user site on GitHub is where I'm going to push the contents of my <code>output</code> folder to. </p>
+<p>I'm going to create a separate repository for the rest so I can back up my Markdown files, tweak my Theme and rebuild the website from different computers.</p>
+<p>This requires a little careful thought when it comes to <code>.gitignore</code> and how we refresh the <code>output</code> folder. </p>
+<h1>And once you've gotten everything working...</h1>
+<p>You might want to do a freeze to capture the packages you installed &amp; make it easier on yourself moving to another computer.</p>
+<div class="highlight"><pre><span></span>pip freeze &gt; requirements.txt
+</pre></div>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="./exciting-first-post.html">posted at 00:00</a>
+                    &nbsp;&middot;&nbsp;<a href="./category/web-stuff.html" rel="tag">Web stuff</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="./tag/first.html" class="tags">first</a>
+                </div>
+            </article>
+            <div class="clear"></div>
+            <footer>
+                <p>
+                <a href="https://github.com/jody-frankowski/blue-penguin">Blue Penguin</a> Theme
+                &middot;
+                Proudly Powered by <a href="http://getpelican.com">Pelican</a>
+            </footer>
+        </div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>
