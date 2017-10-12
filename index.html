@@ -31,7 +31,105 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Apr 18, 2017</h4>
+        <div id="content">            <h4 class="date">Sep 10, 2017</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="./why-linux.html" rel="bookmark" title="Permanent Link to &quot;Why Do We Do This To Ourselves?&quot;">Why Do We Do This To Ourselves?</a>
+                </h2>
+
+                
+                
+
+                <p>Hello! First of all, I'm not dead (for all three loyal followers of this blog!) I got a fantastic new job at <a href="www.cmedrobotics.com">Cambridge Medical Robotics</a> as a full-time Python developer, and have consequently had rather less free time for code musings lately. It's been about five months since I first joined and I'm finally starting to emerge from the new-job haze and find my bearings again. In fact, I had time to break my laptop - and fix it again - which is what I wanted to talk about today.</p>
+<h1>What happened?</h1>
+<p>I finally found the free time to update my laptop from Ubuntu 12.04 to the latest version of Ubuntu LTS (16.04) a weekend or so ago. I had been seeing the suggestion to update coming up for a while (... nearly a year, it turns out!) and ignoring it. But because I couldn't make a new game run with my old version of Ubuntu without installing a bunch of updates anyway, I finally decided to bite the bullet and do the full upgrade. I'd heard mixed things about how well the transition between versions went for other people, and I was also concerned about keeping my windowing appearance the way I like it, so I knew this would take a while and probably not be straightforward. I backed up my data and even made a list of the useful programs I currently have installed, in case things completely went sideways. What I was hoping not to encounter was ...</p>
+<p><img alt="Abandon Hope, All Ye Who Enter Here" src="./images/back-to-cmd-prompt.jpg"></p>
+<p>Anyone who uses an open-source OS will be familiar with this situation. There you are, sitting in front of what was once a beautifully working machine, questioning all your choices and trying to find out how to fix whatever the problem is. The spinal reflex of Linux is the command line. It's what's left when things go wrong. As Neil Stephenson's excellent <a href="http://www.mit.edu/~yandros/doc/command.txt">In The Beginning Was The Command Line</a> reminds us (although here he is actually talking about Windows vs Macs):</p>
+<blockquote>
+<p>"when a Windows machine got into trouble, the old command-line interface would fall down over the GUI like an asbestos fire-curtain sealing off the proscenium of a burning opera. When a Macintosh got into trouble, it would present you with a cartoon of a bomb, which was funny the first time you saw it."</p>
+</blockquote>
+<h1>Why even choose Linux?</h1>
+<h3>My motivations</h3>
+<p>When I got my first laptop as I was about to go to University, I decided to try dual-booting with Ubuntu (it was a Windows machine originally). Mainly it was an experiment - I'd heard that there were some cool coding tools available for Linux systems and I wanted to see what it was like on the other side. I was also kind of a cocky teenager and liked the idea of using a niche, obscure system, customising my laptop in some way. And, most importantly, I had <em>a lot</em> of free time - I took a year out before going to Uni, so aside from working in a gift shop (which didn't occupy my mind that much) I was able to spend time fixing up my laptop the way I wanted. After the inevitable teething problems, I got an installation I was happy with, and enjoyed it so much I ended up just using Ubuntu as my primary system and abandoning the idea of doing dual boot. I kept my system Ubuntu all through college, and though I was sometime concerned I wouldn't be able to complete assignments with it, I was pleasantly surprised by tools such as OpenOffice, which allowed pretty seamless integration with Word, Powerpoint etc. I also had a leg-up on some of my classmates, as when I got to Uni it turned out that the machines in our department all ran Linux installations, too. So I never really had a problem there.</p>
+<h1>Common fears</h1>
+<h3>But what if there are bugs and I don't know how to fix them? I'm not some l33t hacker!</h3>
+<p>Returning to <a href="http://www.mit.edu/~yandros/doc/command.txt">In The Beginning Was The Command Line</a>, which really is a stupendous essay, we find a wisdom about bugs which definitely still holds out. Whatever OS you are running will not be perfect. There will be problems from time to time, and you will try to learn how to fix those problems. Neal Stephenson compares the OS situation to a crossroads with different competing auto-dealerships. Customers come there and 90% go straight to the station-wagon dealership (Windows).</p>
+<blockquote>
+<p>The group giving away the free tanks only survives because it is staffed by volunteers, who are lined up at the edge of the street with bullhorns, trying to draw customers' attention to this incredible situation. A typical conversation goes something like this:</p>
+<p><strong>Hacker with bullhorn</strong>: "Save your money! Accept one of our free tanks! It is invulnerable, and can drive across rocks and swamps at ninety miles an hour while getting a hundred miles to the gallon!"</p>
+<p><strong>Prospective station wagon buyer</strong>: "I know what you say is true... but ... er... I don't know how to maintain a tank!"</p>
+<p><strong>Bullhorn</strong>: "You don't know how to maintain a station wagon either!"</p>
+<p><strong>Buyer</strong>: "But this dealership has mechanics on staff. If something goes wrong with my station wagon, I can take a day off work, bring it here, and pay them to work in it while I sit in the waiting room for hours, listening to elevator music."</p>
+<p><strong>Bullhorn</strong>: "But if you accept one of our free tanks we will send volunteers to your house to fix it for free while you sleep!"</p>
+<p><strong>Buyer</strong>: "Stay away from my house, you freak!"'</p>
+</blockquote>
+<p>With an open-source OS like any of the Linux flavours, hundreds of people will be able to help you, and a solution will probably already exist online. StackOverflow and other such repositories of knowledge are great, as are reading the manuals and docs for specific tools you want to use. Whereas proprietary OS vendors are naturally interested in 
+a) Convincing consumers that there are no problems with their product (particularly security problems!)
+b) Convincing shareholders that their product is commercial (not 'giving anything away for free') and worth paying money for</p>
+<h3>I don't think I can keep up with the skills you need to run an OS like that</h3>
+<p>Not going to lie, this can be a barrier. If you're like me and don't enjoy change, the process of continually needing to update and patch your open-source OS can be scary. You ask yourself - what if it doesn't work next time? You think about how you already voided the warranty on your machine by installing this <em>crazy free OS</em> and you question whether you'll be able to fix it. </p>
+<p>To this I have several suggestions:
+- Use an OS which has widespread adoption and is known to be easier to maintain, such as Ubuntu. I began with Ubuntu and continue to stick with it despite some gripes, because the canonical system does make it so easy to install the patches and updates you need to keep rollin'. Plus, the version system means you can go several years without needing to do a major upgrade.</p>
+<ul>
+<li>
+<p>Cultivate technically minded friends who can advise if things go very wrong. This can be online or off - Ubuntu has a warm community of volunteers who staff the forums and are generally very helpful and kind to newbies. If you're a student there is often at least one l33t sysadmin in your department who Knows The Ways of Linux and they are generally happy to help - perhaps in trade for chocolate! Depending on where you work your colleagues may be able to help out, too. Linux users tend to be evangelists who want to assist others to enjoy using the systems they do.</p>
+</li>
+<li>
+<p>Comfort yourself by thinking of the various <a href="https://en.wikipedia.org/wiki/EternalBlue">high</a> <a href="https://arstechnica.com/information-technology/2017/03/new-wikileaks-dump-the-cia-built-thunderbolt-exploit-implants-to-target-macs/">profile</a> <a href="https://smbloris.com/">problems</a> with commercial OSes - at least you are not suffering with that!</p>
+</li>
+<li>
+<p>Believe in yourself and your ability to fix things if they go wrong. I can't state this enough! Running my own installation of Ubuntu really helped in giving me the confidence I needed to get into coding and eventually, to get a full-time programming job. You don't have to be an IT professional to run Linux though - people from many walks of life do it for different reasons. One of my friends is a historian who uses Ubuntu to make cross-referenced notes more easily!</p>
+</li>
+<li>
+<p>You don't have to commit to running an open-source OS full-time to give it a whirl and see if it's for you. These days you can fairly easily try booting Ubuntu or Debian <a href="https://askubuntu.com/questions/261985/how-do-i-try-ubuntu-from-a-usb-stick">from a memory stick</a>. Using a <a href="https://www.raspberrypi.org/">Rasperry Pi</a> will also give you a taste of Linux for a fairly small investment if you already have a separate screen and keyboard. And of course, <a href="https://askubuntu.com/questions/666631/how-can-i-dual-boot-windows-10-and-ubuntu-on-a-uefi-hp-notebook">dual-booting</a> is getting easier to do - meaning you still have a full working installation of Windows alongside your Linux OS should you need or want.</p>
+</li>
+</ul>
+<h2>Why continue with it?</h2>
+<p>For me in particular, it's important to know I have the ultimate control over my machine. As a programmer this is particularly important, since it is the tool of my trade - it's where I go to think and play. But I think the importance of control is true for everyone, if you think about what you use a laptop for. These days your computer contains your life - your bank statements, your music, photos, books, your email history, everything you've touched online. With a commercial OS, you have to admit that you are not the person who ultimately gets to decide what uses your machine can be put to. Whereas with an open-source OS, you call the shots. </p>
+<p>Some concrete examples are in order.</p>
+<h3>I know that I will always fully own my digital books and music. I'm also confident I can make my own content through remixing the work of others, without being prevented from exercising my creativity.</h3>
+<p>I am a strong believer in the harmfulness of Digital Rights Management. Ultimately in order to enforce this notion (that these things do not 'belong' to you) someone else has to control your means to access them. Lawrence Lessig is far more eloquent than I can be about why it is harmful to lock off access to these things, so I would direct those interested in finding out more to <a href="http://www.free-culture.cc/freecontent/">his work</a> which is, naturally, freely available online. I agree with him that the division between 'creator' and 'consumer' is artificial, and ultimately, harmful. I want to pay creators a fair prices for ebooks and music I enjoy, and in return to be freely able to use those purchases whatever way I see fit, just as I would a physical book or a vinyl record - to lend it to a friend, reshape or remix it. One of my hobbies is <a href="https://fanlore.org/wiki/Vidding">vidding</a>. This is considered copyright violation of the video and music sources I use, and treated variously depending on my source material - sometimes fond indulgence, sometimes takedown notices and harsh threats. I am confident my OS will never prevent me from making my art, and that no-one else will get to decide what is acceptable for me to work on.</p>
+<h3>I can control my security and privacy and can be fairly confident that no-one is using my machine against my wishes.</h3>
+<h4><em>"I just received an e-mail from my daughter, who is very upset, saying, 'Mom, I have my laptop open in my room all the time, even when I'm changing."</em></h4>
+<p>This is a big one. People may have heard of the laptops in Philadelphia that <a href="https://en.wikipedia.org/wiki/Robbins_v._Lower_Merion_School_District">spied on schoolchildren</a> and took tens of thousands of pictures of students, teachers and their families at home. The pictures were shared among staff and some were used to discipline students. One student was <a href="https://www.pcmag.com/article2/0,2817,2367209,00.asp">called into the Principal's office and accused of drug abuse</a> after being secretly photographed eating pill-shaped Mike and Ike candy in his bedroom by his open laptop, for instance.</p>
+<blockquote>
+<p>"[T]here is absolutely no way that the District Tech people are going to monitor students at home.... If we were going to monitor student use at home, we would have stated so. Think about it—why would we do that? There is no purpose. We are not a police state.... There is no way that I would approve or advocate for the monitoring of students at home. I suggest you take a breath and relax."  Principal DiMedio in an email to a concerned student intern, 2008</p>
+<p>"Among all of the webcam photographs recovered in the investigation there are a number of photographs of males without shirts, and other content that the individuals appearing in the photographs might consider to be of a similarly personal nature." <a href="https://web.archive.org/web/20100602042403/http://www.lmsd.org/documents/news/100503_ballard_spahr_report.pdf">Report of Independent Investigation Regarding Remote Monitoring of Student Laptop Computers by the Lower Merion School District, 2010</a></p>
+</blockquote>
+<p>During the case, some argued this was fine, because the children didn't really own their laptops - they were issued to them by the school and the families had signed a consent form about the use of "TheftTrack" software. But the same argument can be made for any piece of proprietary software. Do you really read all of those EULAs before you click 'agreed'? If you use the iTunes music store for instance, you'll remember <a href="https://www.wired.com/?p=1563271">being forced to download a U2 album you weren't interested in and being unable to delete it</a>. You might also remember the irony of <a href="http://www.nytimes.com/2009/07/18/technology/companies/18amazon.html">Amazon remotely deleting ebook copies of George Orwell's 1984 from people's Kindles</a>. What does your 'ownership' of a piece of proprietary software really mean, when the true owners are the company who created and retain ultimate control over it? Those companies do not necessarily have our best interests at heart. </p>
+<p>This is an even bigger issue for those living in repressive regimes which seek to prevent free access to knowledge - Tor and other open-source anonymisation tools and open-source OSs are <a href="https://www.torproject.org/about/torusers.html.en">incredibly valuable</a> to journalists, union organisers, and those working for the cause of human rights and free speech around the globe. The point of open-source tools such as Tor is that anyone is able use them completely freely, even those who the creators <a href="https://blog.torproject.org/tor-project-defends-human-rights-racists-oppose">rightly despise</a>.</p>
+<h3>I know that I can completely understand the tools I use, if I take the time to do so. I can even contribute to making those tools better for everyone.</h3>
+<p>This is a big one as a software developer, but also as someone who enjoys creating works of art. It's liberating to know that, even though I don't understand a great deal of the software I use, I <em>can</em> learn to understand it, and if it goes wrong, I can learn to fix it. The source and config files for Linux are not locked away or hidden. They are just text files that are freely editable - I can eternally change, customise (and definitely break!) my machine if I want. I don't have to stick with the settings that someone else thought would be best for people like me - I can alter how my machine works freely so that it works the way I want. This is particularly great for <a href="https://www.washington.edu/accessit/print.html?ID=1015">accessbility features</a> such as screen magnification, audio readers and the ability to navigate without a mouse. The Ubuntu community is definitely ahead of MacOS in accessibility, and Windows to an extent as well.</p>
+<h3>Warm fuzzies</h3>
+<p>It's quite nebulous but I do enjoy the sensation of being part of a community committed to helping one another and to continual learning. It's also just fun to feel like I've taken the red pill and decided to understand more about how my machine really works! The thrill of having 'insider knowledge' and feeling a little bit like a hacker, that motivated my teenage self to go and install Linux, never entirely went away for me. Of course, there are sometimes feelings of being a fraud or not knowing enough. But the good outweighs the bad for me. As with other computer-related pursuits, I swing between two states:</p>
+<p><img alt="Two states of every programmer" src="./images/two-states-of-every-programmer-i-am-god-i-have-no-idea-what-im-doing.jpg">
+And I wouldn't have it any other way.</p>
+<p>So there you have it. Reasons why I continue to use a Linux OS, despite the sometimes-frustration.</p>
+<h1>Postscript: what was The Fix?</h1>
+<p>There's almost no point telling you about what fixed my particular problem, since <a href="http://lmgtfy.com/?q=ubuntu+12.04">googling for your specific problem</a> will be far more effective. I've forgotten myself most of the details of what I did. However, if you're really curious, I do keep a notebook for these things (it's a nice way to learn a bit more for next time) so according to my notes, here is what I ended up doing:</p>
+<ul>
+<li>Pressed 'Shift' as my laptop booted up to access kernel selection and selected my previous happy kernel 3.13 to get into cmd prompt mode.</li>
+<li>Had a look around using the command line tools at my disposal - this was no hardship since on Ubuntu you can do everything with the command line - it just took me a little while to look up some of the commands. <code>sudo lshw -C Network</code> showed me that network access was disabled - no good if I was going to try installing updates from the internet. <code>sudo service network-manager restart</code> did the trick and got that going again.</li>
+<li>At first I thought I had a problem with where I was pointing at repositories, so I checked that <code>/etc/apt/sources.list</code> had the sources that a bit of googling led gave me a list of what to expect for 16.04. They were actually fine.</li>
+<li>I ran a <code>sudo apt-get upgrade</code> and <code>autoclean</code> which seemed to fix some of the errors, but I still saw a message saying <code>dpkg broken</code>.</li>
+<li>Finally, I found out the fix on this <a href="https://bugs.launchpad.net/ubuntu/+source/ubuntu-release-upgrader/+bug/1389320">handy bug report</a> - looking in <code>etc/init.d/virtuoso-nepomuk</code> showed me that my file there did indeed miss out a <code>### END INIT INFO</code> at the end of its block. Using a command-line text editor (since I'm not a l33t Emacs or vim hacker, I just used nano) I fixed that and saved the file. After that, <code>sudo-apt-get update</code> worked. Following a restart, I had a GUI again!</li>
+<li>After that it was actually relatively simple to get the Gnome interface I know and love back (I really despise the Unity GUI, but that's another post).</li>
+</ul>
+<p>That might sound overwhelming - and at the time there were moments of frustration for sure! It took me a few hours, spaced over several days. But I never doubted during this process that my OS problem could be fixed, and that I could be the one to fix it. It helped greatly that I have a tablet, so I was able to go on the internet during the crisis look up suggestions and solutions. These days, smartphones mean most people aren't trapped offline in a situation like this, and can find advice and help.</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="./why-linux.html">posted at 00:00</a>
+                    &nbsp;&middot;&nbsp;<a href="./category/open-source.html" rel="tag">open source</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="./tag/books.html" class="tags">books</a>
+                    &nbsp;<a href="./tag/open-source.html" class="tags">open source</a>
+                    &nbsp;<a href="./tag/ubuntu.html" class="tags">Ubuntu</a>
+                    &nbsp;<a href="./tag/when-things-go-wrong.html" class="tags">when things go wrong</a>
+                </div>
+		<a href="./why-linux.html#disqus_thread">Click to read and post comments</a>
+            </article>            <h4 class="date">Apr 18, 2017</h4>
 
             <article class="post">
                 <h2 class="title">
@@ -282,7 +380,7 @@
 <li>Changing a class's methods at runtime <em>and making all the instances of that class change after the fact</em></li>
 </ul>
 <p>As pointed out in <a href="http://stackoverflow.com/questions/192649/can-you-monkey-patch-methods-on-core-types-in-python">this thread on StackOverFlow</a> by Dan Lenski, both variants are indeed possible with Python. Here's an example:</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Widget:</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="n">Widget:</span>
     <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>):
        <span class="nb">pass</span>
     <span class="n">def</span> <span class="n">who_am_i</span>(<span class="k">self</span>):
@@ -308,7 +406,7 @@
 <p>And Python doesn't warn you either! So perhaps I was unfairly harsh to Ruby? Not quite.</p>
 <h1>One <em>Important</em> Difference</h1>
 <p><em>Unlike</em> with Ruby, we can't monkeypatch the basic built-in classes, such as <code>int</code>, <code>float</code> or <code>str</code>. This is because they are defined in C extension modules which are immutable. These modules are shared between multiple interpreters and made immutable for efficiency (and safety)'s sake. So when you try to change the behaviour of the built-ins, you can't -</p>
-<div class="highlight"><pre><span></span>def own_up(self, a_string):
+<div class="highlight"><pre>def own_up(self, a_string):
     return a_string.length()*&quot;!&quot;
 
 &gt;&gt;&gt;my_string = &quot;Hello, World!&quot;
@@ -322,7 +420,7 @@ TypeError: can&#39;t set attributes of built-in/extension type &#39;str&#39;
 
 
 <p>To do something which approximates the effects of monkeypatching a built-in we have to subclass, like so - this example lets us write a custom instance of the str.upper() method by inheriting from str.</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">CustomString</span>(<span class="n">str</span>):
+<div class="highlight"><pre><span class="k">class</span> <span class="n">CustomString</span>(<span class="n">str</span>):
     <span class="n">def</span> <span class="n">upper</span>(<span class="k">self</span>):
         <span class="n">desired_value</span> = <span class="s">&quot;!&quot;</span> * <span class="n">len</span>(<span class="k">self</span>)
         <span class="k">return</span> <span class="n">CustomString</span>(<span class="n">desired_value</span>)
@@ -374,7 +472,7 @@ TypeError: can&#39;t set attributes of built-in/extension type &#39;str&#39;
 <h2>Getting Ruby set up</h2>
 <p>For those like myself who prefer more instructions than 'download Ruby online!' here's how I did it in the end:
 <code>` $ sudo apt-get install ruby-full</code> which on my Ubuntu system downloaded Ruby 2.3, which was just fine for my needs. If you use Windows or Mac I'm told the <a href="https://www.ruby-lang.org/en/documentation/installation/">instructions on the Ruby-lang website</a> are quite helpful and up-to-date. I first tried using the default terminal, irb, which you call from the command line</p>
-<div class="highlight"><pre><span></span>user@device:~$ irb
+<div class="highlight"><pre>user@device:~$ irb
 irb(main):001:0&gt; 1+2
 =&gt; 3
 </pre></div>
@@ -384,7 +482,7 @@ irb(main):001:0&gt; 1+2
 <h2>Ruby is like Python</h2>
 <p>Ruby is similar to Python in a lot of ways - this almost hindered me as I kept getting confused between Python and Ruby syntax. It felt like trying to learn Spanish when I already knew some French - confusingly close but distinct. I think ultimately this is helpful (I was mentally translating some things to Python to understand them, and that worked quite well) but to start with it was rather confusing.</p>
 <p>Some similarities: <code>yield</code> sort of works the same</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">do_thrice</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">do_thrice</span>
 <span class="o">*</span>   <span class="n">yield</span>
 <span class="o">*</span>   <span class="n">yield</span>
 <span class="o">*</span>   <span class="n">yield</span>
@@ -400,7 +498,7 @@ irb(main):001:0&gt; 1+2
 
 <p>And the string formatting works <a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings">rather like Python 3.6's new f-strings</a>. So for instance, in Ruby <code>"#{x*2} and also #{y+1}"</code> gives you a string that calculates &amp; inserts those values.</p>
 <p>The <code>*</code> operator works in similar ways to unpack elements of an iterable - for instance, you can do fun things like:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">b</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
@@ -413,14 +511,14 @@ irb(main):001:0&gt; 1+2
 <p>I guess I'm going to have to go read those books on Design Patterns after all...</p>
 <h4>It's super-terse</h4>
 <p>If Python cares a lot about preventing programmers having to type unecessary characters (goodbye <code>;</code> I didn't miss you) then Ruby cares even more. There are a lot of things you can do in one line. Here's a good one:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="p">|</span><span class="n">num</span><span class="p">|</span> <span class="n">num</span><span class="o">.</span><span class="n">even</span><span class="p">?</span> <span class="p">}</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="p">|</span><span class="n">num</span><span class="p">|</span> <span class="n">num</span><span class="o">.</span><span class="n">even</span><span class="p">?</span> <span class="p">}</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="o">]</span>
 </pre></div>
 
 
 <p>This creates a <code>range</code> which spans the numbers 1 to 10, then looks at all the numbers in that range and, if they are even, adds them to a list and returns the list. Phew!</p>
 <p>At times, this can be confusing - for instance, there's no need to write explicit <code>return</code> statements if you don't want to. By default, Ruby returns the evaluation of the last statement in the body of a method. For instance,</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">what_do_i_return</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">what_do_i_return</span>
 <span class="o">*</span>   <span class="s">&quot;A&quot;</span>
 <span class="o">*</span>   <span class="s">&quot;B&quot;</span>
 <span class="o">*</span>   <span class="s">&quot;or C?&quot;</span>
@@ -434,7 +532,7 @@ irb(main):001:0&gt; 1+2
 <p>You <em>can</em> write explicit return statements, but you don't have to. And the way to get a function to evaluate to <a href="http://stackoverflow.com/questions/5267412/can-ruby-return-nothing">sort-of-nothing</a> is to explicitly return nil (of course!). This returning-by-default is confusing at first, but it seems to fit with the rest of Ruby's style.</p>
 <h4>'nil' isn't <em>really</em> nothing</h4>
 <p>You can put <code>nil</code> into things, which is hella confusing. For instance, suppose you have an array, you can add nil elements to it:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">my_array</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">my_array</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
 <span class="o">=&gt;</span> <span class="no">nil</span>
@@ -453,7 +551,7 @@ irb(main):001:0&gt; 1+2
 <h2>Some gripes</h2>
 <h4>'Monkey patching'</h4>
 <p>Monkey patching is <em>dangerous</em>. It's the way Ruby programmers refer to the ability to dynamically modify classes 'live' - at any time. You can even do this with Ruby's built-in classes, like String. At first glance it sounds really cool - you can just go define a new class method whenever you like! For instance</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nb">String</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nb">String</span>
 <span class="o">*</span>    <span class="k">def</span> <span class="n">shouty</span>
 <span class="o">*</span>        <span class="n">upcase</span> <span class="o">+</span> <span class="s">&quot;!!!&quot;</span>
 <span class="o">*</span>    <span class="n">end</span>
@@ -462,7 +560,7 @@ irb(main):001:0&gt; 1+2
 
 
 <p>adds a new 'shouty' method to strings. So now any string can use .shouty, just as if it were a built-in method</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="s">&quot;hello&quot;</span><span class="o">.</span><span class="n">shouty</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="s">&quot;hello&quot;</span><span class="o">.</span><span class="n">shouty</span>
 <span class="o">=&gt;</span> <span class="s">&quot;HELLO!!!&quot;</span>
 </pre></div>
 
@@ -470,7 +568,7 @@ irb(main):001:0&gt; 1+2
 <p>But here's the thing - monkey patching can break things really easily - <strong>and Ruby won't warn you about it!</strong> One of the guys sitting next to me at the meet-up managed to break his irb's Array class by redefining some of its built-in methods. Especially if you're new to Ruby and don't know all the built-in class names, it's really easy to <em>accidentally</em> monkey patch your way into disaster. It seems like a really powerful feature, but I'm not happy with how it seems to work. Perhaps with a nice Ruby IDE that reminds you about all the classes you have on-the-go, it's easier to avoid horrible mistakes?</p>
 <h4>CONSTANTS - why even bother?</h4>
 <p>'Constants' are sort-of a thing in Ruby. If you define a variable with CAPITAL LETTERS, the Ruby interpreter will give you a warning. But it won't do anything about the warning - it'll still change the 'constant' value, and just complain about it. Here's an example:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
 <span class="o">=&gt;</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
 <span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;I changed you anyways!!&quot;</span>
 <span class="p">(</span><span class="n">pry</span><span class="p">):</span><span class="mi">224</span><span class="p">:</span> <span class="nf">warning:</span> <span class="n">already</span> <span class="n">initialized</span> <span class="n">constant</span> <span class="no">CONST</span>
@@ -542,7 +640,7 @@ irb(main):001:0&gt; 1+2
 <img alt="My mindmap of the talk" src="./images/stop_using_classes.jpg"> </p>
 <h2>Game of Life</h2>
 <p>Diedrich uses as an example a neat implementation of Conway's <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Game of Life</a> which is beautifully straightforward and avoids the tempting trap of making a class for a Cell, a class for a Board, etc. His example is so small I've copied and annotated it here (renamed a few of the variables for extra clarity):</p>
-<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Example Game of Life from &#39;Stop Writing Classes&#39; talk by Jack Diedrich. &quot;&quot;&quot;</span>
+<div class="highlight"><pre><span class="sd">&quot;&quot;&quot; Example Game of Life from &#39;Stop Writing Classes&#39; talk by Jack Diedrich. &quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 
 
@@ -582,7 +680,7 @@ irb(main):001:0&gt; 1+2
 
 
 <p>What <code>friends</code> does requires some unpacking. First of all, <code>*map(neighbours, board)</code> takes the iterable returned from <code>map(neighbours, board)</code> and returns it. The <code>*</code> is a useful way to split up the returned single thing from <code>map</code> into each piece and feed them separately to the <code>chain()</code> function as arguments. Here's an example of <code>*</code> in action:</p>
-<div class="highlight"><pre><span></span>def hallo(arg1, arg2):
+<div class="highlight"><pre>def hallo(arg1, arg2):
      print(arg1)
      print(arg2)
      print(&quot;Hallo!!&quot;)
@@ -602,7 +700,7 @@ Hallo!!
 
 
 <p>This <code>map()</code> iterable is the function <code>neighbours()</code> applied to every point in <code>board</code>. So <code>map(neighbours, board)</code> returns sets of all the live cells' neighbours. This is used as an argument to the <code>chain()</code> function. What <code>chain()</code> does is glues groups of iterable things together into a <code>chain</code> object. For example:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">itertools</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">love</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="s2">&quot;DEF&quot;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">love</span>
 <span class="o">&lt;</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7fe58ada5810</span><span class="o">&gt;</span>
@@ -658,7 +756,7 @@ Hallo!!
 <p>Getting Pelican up and running was not as easy as the docs would like you to believe (ah, if only...). So as nearly all first-time Pelican users must do, if the examples in the <a href="www.pelicanthemes.com">Pelican Themes</a> page are anything to go by, my first blog post here will be a tutorial - mostly for my own reference - on how to use Pelican. I found that <a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html">Amy Hanlon's post on the subject</a> was most helpful, as she doesn't tend to assume any 'obvious' prior knowledge from the reader.</p>
 <h1>First Steps</h1>
 <p>In the terminal, set up a new virtual environment for all your Pelican business (good practice). Then make a directory for the website and initialise Pelican in there. These steps went without incident.</p>
-<div class="highlight"><pre><span></span>mkvirtualenv pelican
+<div class="highlight"><pre>mkvirtualenv pelican
 setvirtualenvproject
 workon pelican
 
@@ -671,7 +769,7 @@ pelican-quickstart
 
 
 <p>Pelican's quickstart does allow you to get off the ground pretty fast by setting things up the way you'd like after asking a series of questions. There was an option to say I wanted to upload my site using GitHub Pages - perfect. Say 'yes' to <code>auto-reload &amp; simple HTTP script to assist with developing theme</code> and to <code>create Fabfile/Makerfile</code>. It spits out some basics:</p>
-<div class="highlight"><pre><span></span>content            Makefile        pelicanconf.pyc
+<div class="highlight"><pre>content            Makefile        pelicanconf.pyc
 develop_server.sh  output          publishconf.py
 fabfile.py         pelicanconf.py  
 </pre></div>
@@ -680,26 +778,26 @@ fabfile.py         pelicanconf.py
 <p><code>pelicanconf.py</code> is where your local configuration sits - that's what you want to alter when you're tweaking the webpages you display. <code>publishconf.py</code> is the file that deals with published web pages, eg analytics etc - we're not going to mess with that. <code>content</code> is the folder where you bung all your Markdown (.md) or reStructuredText (.rst) files for all those great blog posts. Pelican will also recognise the folder names <code>images</code> and <code>pages</code> automatically - these are where your pictures and the different webpages you create (aside from the blog posts) will go. <code>output</code> is the folder where the final CSS and HTML live, and it's the part that should be posted to wherever you're doing your web hosting.</p>
 <h1>Problem 1 - no Themes</h1>
 <p>I try and host my new website locally to see what it looks like - and it looks like crap! It's because I don't have any of the lovely themes loaded. I try exactly what the Pelican Themes page recommends: <code>git clone themes into ~/home/user/pelican-themes</code> and add a line in the <code>pelicanconf.py</code> file, like so:</p>
-<div class="highlight"><pre><span></span>THEMES = &quot;/home/user/pelican-themes/blue-penguin&quot;
+<div class="highlight"><pre>THEMES = &quot;/home/user/pelican-themes/blue-penguin&quot;
 </pre></div>
 
 
 <p>Sanity check: do I have any themes installed?</p>
-<div class="highlight"><pre><span></span>(pelican)sandmanuser@sandman-VirtualBox:~/Website$ pelican-themes -l
+<div class="highlight"><pre>(pelican)sandmanuser@sandman-VirtualBox:~/Website$ pelican-themes -l
 notmyidea
 simple
 </pre></div>
 
 
 <p>No. How strange. I did clone pelican-themes locally:</p>
-<div class="highlight"><pre><span></span>git clone https://github.com/getpelican/pelican-themes
+<div class="highlight"><pre>git clone https://github.com/getpelican/pelican-themes
 </pre></div>
 
 
 <p>But since I didn't clone <code>--recursive</code>ly, the actual configuration files for each theme weren't copied. When I go in and look, it's just a bunch of empty folders. Yes, because now when I try to clone it takes <em>forever</em>! Now we're cooking on gas, and when I run <code>make html</code> and then <code>make serve</code> I see that it's looking pretty. Ctrl+C stops the server.</p>
 <h1>Problem 2 - not updating local server</h1>
 <p>I discover what must be another common problem - I go change a webpage to try something else out, hit <code>make serve</code> and find that it won't run:</p>
-<div class="highlight"><pre><span></span>socket.error: [Errno 98] Address already in use
+<div class="highlight"><pre>socket.error: [Errno 98] Address already in use
 Makefile:77: recipe for target &#39;serve&#39; failed
 make: *** [serve] Error 1
 </pre></div>
@@ -714,7 +812,7 @@ to start the development server and stop it again nicely. This also updates your
 <p>This requires a little careful thought when it comes to <code>.gitignore</code> and how we refresh the <code>output</code> folder. </p>
 <h1>And once you've gotten everything working...</h1>
 <p>You might want to do a freeze to capture the packages you installed &amp; make it easier on yourself moving to another computer.</p>
-<div class="highlight"><pre><span></span>pip freeze &gt; requirements.txt
+<div class="highlight"><pre>pip freeze &gt; requirements.txt
 </pre></div>
                 <div class="clear"></div>
 
