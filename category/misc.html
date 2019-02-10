@@ -33,7 +33,47 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Dec 31, 2017</h4>
+        <div id="content">            <h4 class="date">Feb 10, 2019</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="../flex-and-bison.html" rel="bookmark" title="Permanent Link to &quot;Flex and Bison&quot;">Flex and Bison</a>
+                </h2>
+
+                
+                
+
+                <p>I recently started to learn about <code>flex</code> and <code>Bison</code> - a set of parser creation tools for C, C++ and Java. By specifying the grammar and rules for parsing inside two files, <code>blah.y</code> and <code>blah.l</code>, the <code>flex</code> and <code>bison</code> command-line Linux tools will auto-generate an appropriate parser in your chosen language. As you might imagine, this is very handy. </p>
+<p>Since it's generally better to show rather than tell when it comes to software tools, <a href="https://github.com/RaspberryCheesecake/flexible-bison/blob/master/README.md">here's a toy project I've been playing with</a> in which I'm using them to parse GCODE. </p>
+<p>The <code>flex</code> part is what's called a <em>lexical analyser</em> - it uses regular expressions to split the input into <em>tokens</em>. These tokens are used to generate a parser with the <code>Bison</code> part, which is the grammar that tells the parser what do do when certain tokens are read side by side.</p>
+<p>What particularly struck me about these tools was just how old they are. </p>
+<p><img alt="Elegant weapons ... " src="../images/lisp_cycles.png"> </p>
+<p><code>Bison</code> is a descendant of a tool called <code>Yacc</code> (Yet Another Compiler Compiler) which was developed by Steven Johnson working for Bell Labs back in the early 1970s, inspired by Donald Knuth's work on <a href="https://en.wikipedia.org/wiki/LR_parser">LR parsing</a>. It has been rewritten in many different languages over the years, but the most popular implementation these days is probably <code>Bison</code>, which dates back to 1985, when it was worked on by Robert Corbett. Richard Stallman (yes, that Richard Stallman) made the <code>GNU-Bison</code> tool <code>Yacc</code>-compatible.</p>
+<p><code>Flex</code> meanwhile was written in C by Vern Paxson in 1987, tranlating an older tool called <code>Lex</code>. <code>Lex</code> was originally written by Mike Lesk and Eric Schmidt, and <a href="https://www.epaperpress.com/lexandyacc/download/lex.pdf">described in a paper</a> by them in 1975. It was initially written in <code>ratfor</code>, an extended version of Fortran popular at the time.As they point out in the paper:</p>
+<blockquote>
+<p>"As  should  be  obvious  from  the  above,  the outside of Lex is patterned on Yacc and the inside on  Aho’s  string  matching  routines. Therefore, both S. C. Johnson and A. V. Aho are really originators of much of Lex, as well as debuggers of it. Many thanks are due to both. The code of the current version of Lex was designed, written, and debugged by Eric Schmidt"</p>
+</blockquote>
+<p>As you might expect of such venerable tools, they have some excellent tutorials on their use, including an O'Reilly book <a href="https://www.oreilly.com/library/view/flex-bison/9780596805418/">"flex &amp; bison"</a> - which itself is the "long awaited sequel" to the O'Reilly classic, "lex &amp; yacc". Those who teach in depth about these tools or about parsing are in some danger of <a href="https://www.dabeaz.com/ply/">re-writing them even more nicely in a favourite language</a> - the linked example is PLY, which was originally developed in 2001 for use in an Introduction to Compilers course where students used it to build a compiler for a Pascal-like language.</p>
+<p>I'm fascinated by how tools like this have survived and thrived over what, to computer science, is an enormous amount of time. Perhaps it is because they are beautiful - they have some inherent quality that shines out, no matter what language they happen to be in. I was re-reading the interview with Fran Allen in 'Coders At Work' about beautiful code, and it really resonated.</p>
+<blockquote>
+<p><em>Allen</em>: One of the things I remember really enjoying is reading the original program - and considering it very elegant. That captured me because it was quite a sophisticated program written by someone who had been in the field a while - Roy Nutt. It was beautifully written.
+<em>Seibel</em>: What makes a program beautiful?
+<em>Allen</em>: That it is a simple straightforward solution to a problem; that has some intrinsic structure and an obviousness about it that isn't obvious from the problem itself. I picked up probably a new habit from that of learning about programming and learning about a new language by taking an existing program and studying it.
+<em>Seibel</em>: How do you read code? Let's say you're going to learn a new language and you find a program to read - how do you attack it?
+<em>Allen</em>: Well, one example was one of my employees had built a parser. This was later on for the PTRAN project. And I wanted to understand his methods. It's actually probably the best parser in the world - now it's out in open source, and it's really an extraordinary parser that can do error correction in flight. I wanted to understand it, so I took it and I read it. And I knew that Phillipe Charles, the man who had written it, was a beautiful programmer. The way I would approach understanding a new language or a new implementation of some very complex problem would be to take a program from somebody that I knew was a great programmer, and read it.</p>
+</blockquote>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="../flex-and-bison.html">posted at 00:00</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="../tag/parsing.html" class="tags">Parsing</a>
+                    &nbsp;<a href="../tag/c.html" class="tags">C</a>
+                    &nbsp;<a href="../tag/c.html" class="tags">C++</a>
+                    &nbsp;<a href="../tag/tools.html" class="tags">Tools</a>
+                </div>
+		<a href="../flex-and-bison.html#disqus_thread">Click to read and post comments</a>
+            </article>            <h4 class="date">Dec 31, 2017</h4>
 
             <article class="post">
                 <h2 class="title">
@@ -409,7 +449,7 @@ but I was glad to have the chance to do it and got some lovely feedback afterwar
 <li>Changing a class's methods at runtime <em>and making all the instances of that class change after the fact</em></li>
 </ul>
 <p>As pointed out in <a href="http://stackoverflow.com/questions/192649/can-you-monkey-patch-methods-on-core-types-in-python">this thread on StackOverFlow</a> by Dan Lenski, both variants are indeed possible with Python. Here's an example:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="n">Widget:</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Widget:</span>
     <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>):
        <span class="nb">pass</span>
     <span class="n">def</span> <span class="n">who_am_i</span>(<span class="k">self</span>):
@@ -435,7 +475,7 @@ but I was glad to have the chance to do it and got some lovely feedback afterwar
 <p>And Python doesn't warn you either! So perhaps I was unfairly harsh to Ruby? Not quite.</p>
 <h1>One <em>Important</em> Difference</h1>
 <p><em>Unlike</em> with Ruby, we can't monkeypatch the basic built-in classes, such as <code>int</code>, <code>float</code> or <code>str</code>. This is because they are defined in C extension modules which are immutable. These modules are shared between multiple interpreters and made immutable for efficiency (and safety)'s sake. So when you try to change the behaviour of the built-ins, you can't -</p>
-<div class="highlight"><pre>def own_up(self, a_string):
+<div class="highlight"><pre><span></span>def own_up(self, a_string):
     return a_string.length()*&quot;!&quot;
 
 &gt;&gt;&gt;my_string = &quot;Hello, World!&quot;
@@ -449,7 +489,7 @@ TypeError: can&#39;t set attributes of built-in/extension type &#39;str&#39;
 
 
 <p>To do something which approximates the effects of monkeypatching a built-in we have to subclass, like so - this example lets us write a custom instance of the str.upper() method by inheriting from str.</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="n">CustomString</span>(<span class="n">str</span>):
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">CustomString</span>(<span class="n">str</span>):
     <span class="n">def</span> <span class="n">upper</span>(<span class="k">self</span>):
         <span class="n">desired_value</span> = <span class="s">&quot;!&quot;</span> * <span class="n">len</span>(<span class="k">self</span>)
         <span class="k">return</span> <span class="n">CustomString</span>(<span class="n">desired_value</span>)
@@ -501,7 +541,7 @@ TypeError: can&#39;t set attributes of built-in/extension type &#39;str&#39;
 <h2>Getting Ruby set up</h2>
 <p>For those like myself who prefer more instructions than 'download Ruby online!' here's how I did it in the end:
 <code>` $ sudo apt-get install ruby-full</code> which on my Ubuntu system downloaded Ruby 2.3, which was just fine for my needs. If you use Windows or Mac I'm told the <a href="https://www.ruby-lang.org/en/documentation/installation/">instructions on the Ruby-lang website</a> are quite helpful and up-to-date. I first tried using the default terminal, irb, which you call from the command line</p>
-<div class="highlight"><pre>user@device:~$ irb
+<div class="highlight"><pre><span></span>user@device:~$ irb
 irb(main):001:0&gt; 1+2
 =&gt; 3
 </pre></div>
@@ -511,7 +551,7 @@ irb(main):001:0&gt; 1+2
 <h2>Ruby is like Python</h2>
 <p>Ruby is similar to Python in a lot of ways - this almost hindered me as I kept getting confused between Python and Ruby syntax. It felt like trying to learn Spanish when I already knew some French - confusingly close but distinct. I think ultimately this is helpful (I was mentally translating some things to Python to understand them, and that worked quite well) but to start with it was rather confusing.</p>
 <p>Some similarities: <code>yield</code> sort of works the same</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">do_thrice</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">do_thrice</span>
 <span class="o">*</span>   <span class="n">yield</span>
 <span class="o">*</span>   <span class="n">yield</span>
 <span class="o">*</span>   <span class="n">yield</span>
@@ -527,7 +567,7 @@ irb(main):001:0&gt; 1+2
 
 <p>And the string formatting works <a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings">rather like Python 3.6's new f-strings</a>. So for instance, in Ruby <code>"#{x*2} and also #{y+1}"</code> gives you a string that calculates &amp; inserts those values.</p>
 <p>The <code>*</code> operator works in similar ways to unpack elements of an iterable - for instance, you can do fun things like:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">b</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
@@ -540,14 +580,14 @@ irb(main):001:0&gt; 1+2
 <p>I guess I'm going to have to go read those books on Design Patterns after all...</p>
 <h4>It's super-terse</h4>
 <p>If Python cares a lot about preventing programmers having to type unecessary characters (goodbye <code>;</code> I didn't miss you) then Ruby cares even more. There are a lot of things you can do in one line. Here's a good one:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="p">|</span><span class="n">num</span><span class="p">|</span> <span class="n">num</span><span class="o">.</span><span class="n">even</span><span class="p">?</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="p">|</span><span class="n">num</span><span class="p">|</span> <span class="n">num</span><span class="o">.</span><span class="n">even</span><span class="p">?</span> <span class="p">}</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="o">]</span>
 </pre></div>
 
 
 <p>This creates a <code>range</code> which spans the numbers 1 to 10, then looks at all the numbers in that range and, if they are even, adds them to a list and returns the list. Phew!</p>
 <p>At times, this can be confusing - for instance, there's no need to write explicit <code>return</code> statements if you don't want to. By default, Ruby returns the evaluation of the last statement in the body of a method. For instance,</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">what_do_i_return</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">what_do_i_return</span>
 <span class="o">*</span>   <span class="s">&quot;A&quot;</span>
 <span class="o">*</span>   <span class="s">&quot;B&quot;</span>
 <span class="o">*</span>   <span class="s">&quot;or C?&quot;</span>
@@ -561,7 +601,7 @@ irb(main):001:0&gt; 1+2
 <p>You <em>can</em> write explicit return statements, but you don't have to. And the way to get a function to evaluate to <a href="http://stackoverflow.com/questions/5267412/can-ruby-return-nothing">sort-of-nothing</a> is to explicitly return nil (of course!). This returning-by-default is confusing at first, but it seems to fit with the rest of Ruby's style.</p>
 <h4>'nil' isn't <em>really</em> nothing</h4>
 <p>You can put <code>nil</code> into things, which is hella confusing. For instance, suppose you have an array, you can add nil elements to it:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">my_array</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">my_array</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
 <span class="o">=&gt;</span> <span class="no">nil</span>
@@ -580,7 +620,7 @@ irb(main):001:0&gt; 1+2
 <h2>Some gripes</h2>
 <h4>'Monkey patching'</h4>
 <p>Monkey patching is <em>dangerous</em>. It's the way Ruby programmers refer to the ability to dynamically modify classes 'live' - at any time. You can even do this with Ruby's built-in classes, like String. At first glance it sounds really cool - you can just go define a new class method whenever you like! For instance</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nb">String</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nb">String</span>
 <span class="o">*</span>    <span class="k">def</span> <span class="n">shouty</span>
 <span class="o">*</span>        <span class="n">upcase</span> <span class="o">+</span> <span class="s">&quot;!!!&quot;</span>
 <span class="o">*</span>    <span class="n">end</span>
@@ -589,7 +629,7 @@ irb(main):001:0&gt; 1+2
 
 
 <p>adds a new 'shouty' method to strings. So now any string can use .shouty, just as if it were a built-in method</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="s">&quot;hello&quot;</span><span class="o">.</span><span class="n">shouty</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="s">&quot;hello&quot;</span><span class="o">.</span><span class="n">shouty</span>
 <span class="o">=&gt;</span> <span class="s">&quot;HELLO!!!&quot;</span>
 </pre></div>
 
@@ -597,7 +637,7 @@ irb(main):001:0&gt; 1+2
 <p>But here's the thing - monkey patching can break things really easily - <strong>and Ruby won't warn you about it!</strong> One of the guys sitting next to me at the meet-up managed to break his irb's Array class by redefining some of its built-in methods. Especially if you're new to Ruby and don't know all the built-in class names, it's really easy to <em>accidentally</em> monkey patch your way into disaster. It seems like a really powerful feature, but I'm not happy with how it seems to work. Perhaps with a nice Ruby IDE that reminds you about all the classes you have on-the-go, it's easier to avoid horrible mistakes?</p>
 <h4>CONSTANTS - why even bother?</h4>
 <p>'Constants' are sort-of a thing in Ruby. If you define a variable with CAPITAL LETTERS, the Ruby interpreter will give you a warning. But it won't do anything about the warning - it'll still change the 'constant' value, and just complain about it. Here's an example:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
 <span class="o">=&gt;</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
 <span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;I changed you anyways!!&quot;</span>
 <span class="p">(</span><span class="n">pry</span><span class="p">):</span><span class="mi">224</span><span class="p">:</span> <span class="nf">warning:</span> <span class="n">already</span> <span class="n">initialized</span> <span class="n">constant</span> <span class="no">CONST</span>

@@ -120,7 +120,7 @@ but I was glad to have the chance to do it and got some lovely feedback afterwar
 <li>Changing a class's methods at runtime <em>and making all the instances of that class change after the fact</em></li>
 </ul>
 <p>As pointed out in <a href="http://stackoverflow.com/questions/192649/can-you-monkey-patch-methods-on-core-types-in-python">this thread on StackOverFlow</a> by Dan Lenski, both variants are indeed possible with Python. Here's an example:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="n">Widget:</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Widget:</span>
     <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>):
        <span class="nb">pass</span>
     <span class="n">def</span> <span class="n">who_am_i</span>(<span class="k">self</span>):
@@ -146,7 +146,7 @@ but I was glad to have the chance to do it and got some lovely feedback afterwar
 <p>And Python doesn't warn you either! So perhaps I was unfairly harsh to Ruby? Not quite.</p>
 <h1>One <em>Important</em> Difference</h1>
 <p><em>Unlike</em> with Ruby, we can't monkeypatch the basic built-in classes, such as <code>int</code>, <code>float</code> or <code>str</code>. This is because they are defined in C extension modules which are immutable. These modules are shared between multiple interpreters and made immutable for efficiency (and safety)'s sake. So when you try to change the behaviour of the built-ins, you can't -</p>
-<div class="highlight"><pre>def own_up(self, a_string):
+<div class="highlight"><pre><span></span>def own_up(self, a_string):
     return a_string.length()*&quot;!&quot;
 
 &gt;&gt;&gt;my_string = &quot;Hello, World!&quot;
@@ -160,7 +160,7 @@ TypeError: can&#39;t set attributes of built-in/extension type &#39;str&#39;
 
 
 <p>To do something which approximates the effects of monkeypatching a built-in we have to subclass, like so - this example lets us write a custom instance of the str.upper() method by inheriting from str.</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="n">CustomString</span>(<span class="n">str</span>):
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">CustomString</span>(<span class="n">str</span>):
     <span class="n">def</span> <span class="n">upper</span>(<span class="k">self</span>):
         <span class="n">desired_value</span> = <span class="s">&quot;!&quot;</span> * <span class="n">len</span>(<span class="k">self</span>)
         <span class="k">return</span> <span class="n">CustomString</span>(<span class="n">desired_value</span>)
@@ -207,7 +207,7 @@ TypeError: can&#39;t set attributes of built-in/extension type &#39;str&#39;
 <img alt="My mindmap of the talk" src="../images/stop_using_classes.jpg"> </p>
 <h2>Game of Life</h2>
 <p>Diedrich uses as an example a neat implementation of Conway's <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Game of Life</a> which is beautifully straightforward and avoids the tempting trap of making a class for a Cell, a class for a Board, etc. His example is so small I've copied and annotated it here (renamed a few of the variables for extra clarity):</p>
-<div class="highlight"><pre><span class="sd">&quot;&quot;&quot; Example Game of Life from &#39;Stop Writing Classes&#39; talk by Jack Diedrich. &quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Example Game of Life from &#39;Stop Writing Classes&#39; talk by Jack Diedrich. &quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 
 
@@ -247,7 +247,7 @@ TypeError: can&#39;t set attributes of built-in/extension type &#39;str&#39;
 
 
 <p>What <code>friends</code> does requires some unpacking. First of all, <code>*map(neighbours, board)</code> takes the iterable returned from <code>map(neighbours, board)</code> and returns it. The <code>*</code> is a useful way to split up the returned single thing from <code>map</code> into each piece and feed them separately to the <code>chain()</code> function as arguments. Here's an example of <code>*</code> in action:</p>
-<div class="highlight"><pre>def hallo(arg1, arg2):
+<div class="highlight"><pre><span></span>def hallo(arg1, arg2):
      print(arg1)
      print(arg2)
      print(&quot;Hallo!!&quot;)
@@ -267,7 +267,7 @@ Hallo!!
 
 
 <p>This <code>map()</code> iterable is the function <code>neighbours()</code> applied to every point in <code>board</code>. So <code>map(neighbours, board)</code> returns sets of all the live cells' neighbours. This is used as an argument to the <code>chain()</code> function. What <code>chain()</code> does is glues groups of iterable things together into a <code>chain</code> object. For example:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">itertools</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">love</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="s2">&quot;DEF&quot;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">love</span>
 <span class="o">&lt;</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7fe58ada5810</span><span class="o">&gt;</span>

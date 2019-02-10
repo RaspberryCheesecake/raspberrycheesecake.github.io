@@ -52,7 +52,7 @@
 <h2>Getting Ruby set up</h2>
 <p>For those like myself who prefer more instructions than 'download Ruby online!' here's how I did it in the end:
 <code>` $ sudo apt-get install ruby-full</code> which on my Ubuntu system downloaded Ruby 2.3, which was just fine for my needs. If you use Windows or Mac I'm told the <a href="https://www.ruby-lang.org/en/documentation/installation/">instructions on the Ruby-lang website</a> are quite helpful and up-to-date. I first tried using the default terminal, irb, which you call from the command line</p>
-<div class="highlight"><pre>user@device:~$ irb
+<div class="highlight"><pre><span></span>user@device:~$ irb
 irb(main):001:0&gt; 1+2
 =&gt; 3
 </pre></div>
@@ -62,7 +62,7 @@ irb(main):001:0&gt; 1+2
 <h2>Ruby is like Python</h2>
 <p>Ruby is similar to Python in a lot of ways - this almost hindered me as I kept getting confused between Python and Ruby syntax. It felt like trying to learn Spanish when I already knew some French - confusingly close but distinct. I think ultimately this is helpful (I was mentally translating some things to Python to understand them, and that worked quite well) but to start with it was rather confusing.</p>
 <p>Some similarities: <code>yield</code> sort of works the same</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">do_thrice</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">do_thrice</span>
 <span class="o">*</span>   <span class="n">yield</span>
 <span class="o">*</span>   <span class="n">yield</span>
 <span class="o">*</span>   <span class="n">yield</span>
@@ -78,7 +78,7 @@ irb(main):001:0&gt; 1+2
 
 <p>And the string formatting works <a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings">rather like Python 3.6's new f-strings</a>. So for instance, in Ruby <code>"#{x*2} and also #{y+1}"</code> gives you a string that calculates &amp; inserts those values.</p>
 <p>The <code>*</code> operator works in similar ways to unpack elements of an iterable - for instance, you can do fun things like:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">b</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
@@ -91,14 +91,14 @@ irb(main):001:0&gt; 1+2
 <p>I guess I'm going to have to go read those books on Design Patterns after all...</p>
 <h4>It's super-terse</h4>
 <p>If Python cares a lot about preventing programmers having to type unecessary characters (goodbye <code>;</code> I didn't miss you) then Ruby cares even more. There are a lot of things you can do in one line. Here's a good one:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="p">|</span><span class="n">num</span><span class="p">|</span> <span class="n">num</span><span class="o">.</span><span class="n">even</span><span class="p">?</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="p">|</span><span class="n">num</span><span class="p">|</span> <span class="n">num</span><span class="o">.</span><span class="n">even</span><span class="p">?</span> <span class="p">}</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="o">]</span>
 </pre></div>
 
 
 <p>This creates a <code>range</code> which spans the numbers 1 to 10, then looks at all the numbers in that range and, if they are even, adds them to a list and returns the list. Phew!</p>
 <p>At times, this can be confusing - for instance, there's no need to write explicit <code>return</code> statements if you don't want to. By default, Ruby returns the evaluation of the last statement in the body of a method. For instance,</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">what_do_i_return</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">what_do_i_return</span>
 <span class="o">*</span>   <span class="s">&quot;A&quot;</span>
 <span class="o">*</span>   <span class="s">&quot;B&quot;</span>
 <span class="o">*</span>   <span class="s">&quot;or C?&quot;</span>
@@ -112,7 +112,7 @@ irb(main):001:0&gt; 1+2
 <p>You <em>can</em> write explicit return statements, but you don't have to. And the way to get a function to evaluate to <a href="http://stackoverflow.com/questions/5267412/can-ruby-return-nothing">sort-of-nothing</a> is to explicitly return nil (of course!). This returning-by-default is confusing at first, but it seems to fit with the rest of Ruby's style.</p>
 <h4>'nil' isn't <em>really</em> nothing</h4>
 <p>You can put <code>nil</code> into things, which is hella confusing. For instance, suppose you have an array, you can add nil elements to it:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">my_array</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">my_array</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
 <span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
 <span class="o">=&gt;</span> <span class="no">nil</span>
@@ -131,7 +131,7 @@ irb(main):001:0&gt; 1+2
 <h2>Some gripes</h2>
 <h4>'Monkey patching'</h4>
 <p>Monkey patching is <em>dangerous</em>. It's the way Ruby programmers refer to the ability to dynamically modify classes 'live' - at any time. You can even do this with Ruby's built-in classes, like String. At first glance it sounds really cool - you can just go define a new class method whenever you like! For instance</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nb">String</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nb">String</span>
 <span class="o">*</span>    <span class="k">def</span> <span class="n">shouty</span>
 <span class="o">*</span>        <span class="n">upcase</span> <span class="o">+</span> <span class="s">&quot;!!!&quot;</span>
 <span class="o">*</span>    <span class="n">end</span>
@@ -140,7 +140,7 @@ irb(main):001:0&gt; 1+2
 
 
 <p>adds a new 'shouty' method to strings. So now any string can use .shouty, just as if it were a built-in method</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="s">&quot;hello&quot;</span><span class="o">.</span><span class="n">shouty</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="s">&quot;hello&quot;</span><span class="o">.</span><span class="n">shouty</span>
 <span class="o">=&gt;</span> <span class="s">&quot;HELLO!!!&quot;</span>
 </pre></div>
 
@@ -148,7 +148,7 @@ irb(main):001:0&gt; 1+2
 <p>But here's the thing - monkey patching can break things really easily - <strong>and Ruby won't warn you about it!</strong> One of the guys sitting next to me at the meet-up managed to break his irb's Array class by redefining some of its built-in methods. Especially if you're new to Ruby and don't know all the built-in class names, it's really easy to <em>accidentally</em> monkey patch your way into disaster. It seems like a really powerful feature, but I'm not happy with how it seems to work. Perhaps with a nice Ruby IDE that reminds you about all the classes you have on-the-go, it's easier to avoid horrible mistakes?</p>
 <h4>CONSTANTS - why even bother?</h4>
 <p>'Constants' are sort-of a thing in Ruby. If you define a variable with CAPITAL LETTERS, the Ruby interpreter will give you a warning. But it won't do anything about the warning - it'll still change the 'constant' value, and just complain about it. Here's an example:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
 <span class="o">=&gt;</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
 <span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;I changed you anyways!!&quot;</span>
 <span class="p">(</span><span class="n">pry</span><span class="p">):</span><span class="mi">224</span><span class="p">:</span> <span class="nf">warning:</span> <span class="n">already</span> <span class="n">initialized</span> <span class="n">constant</span> <span class="no">CONST</span>

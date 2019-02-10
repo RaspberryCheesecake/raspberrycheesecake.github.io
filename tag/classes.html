@@ -46,7 +46,7 @@
 <img alt="My mindmap of the talk" src="../images/stop_using_classes.jpg"> </p>
 <h2>Game of Life</h2>
 <p>Diedrich uses as an example a neat implementation of Conway's <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Game of Life</a> which is beautifully straightforward and avoids the tempting trap of making a class for a Cell, a class for a Board, etc. His example is so small I've copied and annotated it here (renamed a few of the variables for extra clarity):</p>
-<div class="highlight"><pre><span class="sd">&quot;&quot;&quot; Example Game of Life from &#39;Stop Writing Classes&#39; talk by Jack Diedrich. &quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Example Game of Life from &#39;Stop Writing Classes&#39; talk by Jack Diedrich. &quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 
 
@@ -86,7 +86,7 @@
 
 
 <p>What <code>friends</code> does requires some unpacking. First of all, <code>*map(neighbours, board)</code> takes the iterable returned from <code>map(neighbours, board)</code> and returns it. The <code>*</code> is a useful way to split up the returned single thing from <code>map</code> into each piece and feed them separately to the <code>chain()</code> function as arguments. Here's an example of <code>*</code> in action:</p>
-<div class="highlight"><pre>def hallo(arg1, arg2):
+<div class="highlight"><pre><span></span>def hallo(arg1, arg2):
      print(arg1)
      print(arg2)
      print(&quot;Hallo!!&quot;)
@@ -106,7 +106,7 @@ Hallo!!
 
 
 <p>This <code>map()</code> iterable is the function <code>neighbours()</code> applied to every point in <code>board</code>. So <code>map(neighbours, board)</code> returns sets of all the live cells' neighbours. This is used as an argument to the <code>chain()</code> function. What <code>chain()</code> does is glues groups of iterable things together into a <code>chain</code> object. For example:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">itertools</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">love</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="s2">&quot;DEF&quot;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">love</span>
 <span class="o">&lt;</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7fe58ada5810</span><span class="o">&gt;</span>
