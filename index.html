@@ -31,7 +31,49 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Feb 10, 2019</h4>
+        <div id="content">            <h4 class="date">Apr 12, 2019</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="./learning-scrum.html" rel="bookmark" title="Permanent Link to &quot;Agile Workshop&quot;">Agile Workshop</a>
+                </h2>
+
+                
+                
+
+                <p>I recently attended a Certified Scrum Master course taught by Tobias Mayer of <a href="https://www.adventureswithagile.com/">Adventures With Agile</a>. I really enjoyed the course and the style in which it was taught. There was no death by Powerpoint! Tobias actually constructed a board on the wall with columns to keep track of the tasks comprising the course, and we added extra task cards for further discussion and questions as we went along. </p>
+<p><img alt="The board" src="./images/scrum-course-scrum-board.jpg">
+Here's what the board looked like near the start of the two day course.</p>
+<p>We held 'Sprints' of an hour or so at a time, diving into aspects of Agile and then reviewing how it went, to improve our group process. Sometimes the teacher would stand and talk about a concept for a while, but mostly the course was interactive, especially during the second day where we broke out into groups for longer sessions. </p>
+<p>The exercises we did included 'Point and Go': a game where players stand in a circle and have to 
+<em> Point to someone else whose place you want to take
+</em> Wait for them to say "Go"
+<em> Start moving forwards to them
+</em> Before you reach them, they have to find another place to go (and the cycle continues!)
+This was unexpectedly hard! It was a metaphor for how difficult it can be to break out of an established pattern of behaviour at work. Even once we got into a rhythm, if things sped up or someone panicked, our orderly pattern fell apart.</p>
+<p>Another exercise I enjoyed was coming up with different metaphors for Scrum. We broke out into groups and thought up some different ideas - I was impressed by the variety and how each of them fitted different parts of what Scrum can look like. Some of my favourites were:
+<em> a garden growing and changing over time
+</em> a cocktail bar developing new drinks
+<em> a stand-up comedian working on their routine
+</em> a graffiti crew making a work of art for their neighbourhood
+* Jurassic Park (this was mine!)</p>
+<p><img alt="A Product Owner is like a Duchess" src="./images/scrum-roles-mindmap.jpg">
+A mindmap from my notes about the different Scrum roles</p>
+<p>Following the training, I'm now a Certified Scrum Master. There have been some intelligent criticisms (link) of this certification process, including by some of its founders. The fact that there is a certification exam seems to somewhat devalue the training experience itself. I didn't really need to complete the training to do the certification exam - its questions are purely based on the <a href="https://www.scrum.org/resources/scrum-guide">Scrum Guide</a> and a few on the <a href="https://agilemanifesto.org/">Agile Manifesto</a>. How well can a multiple-choice test about a short document really hope to measure someone's competence in such a fuzzy relationship-centred domain as taking on the role of a Scrum Master? It's always going to fall short, I think. </p>
+<p>I passed the exam. But the things that will really stay with me are the advice of the trainer and the discussions I had during the course, especially with others whose companies are also on the path to adopting more Agile practices. I certainly recommend Tobias as a teacher: his creative exercises and the way he presented the course helped grow my understanding and confidence in the role of Scrum Master. I'd like to attend the <a href="https://tobiasmayer.uk/scrum/smclinics">Scrum Master Clinic</a> - I think it would really help to have access to ongoing mentoring and peer advice.</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="./learning-scrum.html">posted at 00:00</a>
+                    &nbsp;&middot;&nbsp;<a href="./category/agile.html" rel="tag">agile</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="./tag/scrum.html" class="tags">scrum</a>
+                    &nbsp;<a href="./tag/coaching.html" class="tags">coaching</a>
+                    &nbsp;<a href="./tag/agile.html" class="tags">agile</a>
+                    &nbsp;<a href="./tag/workshop.html" class="tags">workshop</a>
+                </div>
+		<a href="./learning-scrum.html#disqus_thread">Click to read and post comments</a>
+            </article>            <h4 class="date">Feb 10, 2019</h4>
 
             <article class="post">
                 <h2 class="title">
@@ -791,120 +833,6 @@ irb(main):001:0&gt; 1+2
                     &nbsp;<a href="./tag/uncle-bob-martin.html" class="tags">'Uncle' Bob Martin</a>
                 </div>
 		<a href="./clean-coder.html#disqus_thread">Click to read and post comments</a>
-            </article>            <h4 class="date">Jan 23, 2017</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="./stop-writing-classes.html" rel="bookmark" title="Permanent Link to &quot;Stop Writing (Unecessary) Classes&quot;">Stop Writing (Unecessary) Classes</a>
-                </h2>
-
-                
-                
-
-                <p>I listened to a great talk recently called <a href="https://www.youtube.com/embed/o9pEzgHorH0?feature=player_embedded&amp;iv_load_policy=3&amp;autoplay=1&amp;rel=0&amp;start=20">Stop Using Classes</a> by Peter Diedrich. The talk goes through some of the unhelpful ways classes can be used in Python and makes good points about readability and simplicity. Here's my mindmap of the talk.
-<img alt="My mindmap of the talk" src="./images/stop_using_classes.jpg"> </p>
-<h2>Game of Life</h2>
-<p>Diedrich uses as an example a neat implementation of Conway's <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Game of Life</a> which is beautifully straightforward and avoids the tempting trap of making a class for a Cell, a class for a Board, etc. His example is so small I've copied and annotated it here (renamed a few of the variables for extra clarity):</p>
-<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Example Game of Life from &#39;Stop Writing Classes&#39; talk by Jack Diedrich. &quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
-
-
-<span class="k">def</span> <span class="nf">neighbours</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">point</span>
-    <span class="k">yield</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span>
-    <span class="k">yield</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span>
-    <span class="k">yield</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span>
-    <span class="k">yield</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span>
-    <span class="k">yield</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span>
-    <span class="k">yield</span> <span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span>
-    <span class="k">yield</span> <span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span>
-    <span class="k">yield</span> <span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span>
-
-
-<span class="k">def</span> <span class="nf">advance</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
-    <span class="n">new_state</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># initialises a set with a blank list inside</span>
-    <span class="n">friends</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">neighbours</span><span class="p">,</span> <span class="n">board</span><span class="p">)))</span>
-    <span class="n">cells_we_care_about</span> <span class="o">=</span> <span class="n">board</span> <span class="o">|</span> <span class="n">friends</span>
-
-    <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">cells_we_care_about</span><span class="p">:</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">cell</span> <span class="ow">in</span> <span class="n">board</span><span class="p">)</span>
-                    <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">neighbours</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">or</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">board</span><span class="p">):</span>
-            <span class="n">new_state</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">new_state</span>
-
-
-<span class="n">glider</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-    <span class="n">glider</span> <span class="o">=</span> <span class="n">advance</span><span class="p">(</span><span class="n">glider</span><span class="p">)</span>
-
-<span class="k">print</span> <span class="n">glider</span>
-</pre></div>
-
-
-<p>What <code>friends</code> does requires some unpacking. First of all, <code>*map(neighbours, board)</code> takes the iterable returned from <code>map(neighbours, board)</code> and returns it. The <code>*</code> is a useful way to split up the returned single thing from <code>map</code> into each piece and feed them separately to the <code>chain()</code> function as arguments. Here's an example of <code>*</code> in action:</p>
-<div class="highlight"><pre><span></span>def hallo(arg1, arg2):
-     print(arg1)
-     print(arg2)
-     print(&quot;Hallo!!&quot;)
-
-&gt;&gt;&gt; printme = (&quot;Yes&quot;, &quot;Indeed&quot;)
-&gt;&gt;&gt; hallo(printme)
-Traceback (most recent call last):
-  File &quot;/usr/lib/python3.5/code.py&quot;, line 91, in runcode
-    exec(code, self.locals)
-  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
-TypeError: hallo() missing 1 required positional argument: &#39;arg2&#39;
-&gt;&gt;&gt; hallo(*printme)
-Yes
-Indeed
-Hallo!!
-</pre></div>
-
-
-<p>This <code>map()</code> iterable is the function <code>neighbours()</code> applied to every point in <code>board</code>. So <code>map(neighbours, board)</code> returns sets of all the live cells' neighbours. This is used as an argument to the <code>chain()</code> function. What <code>chain()</code> does is glues groups of iterable things together into a <code>chain</code> object. For example:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">itertools</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">love</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="s2">&quot;DEF&quot;</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">love</span>
-<span class="o">&lt;</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7fe58ada5810</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">love</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">print</span> <span class="n">item</span>
-<span class="o">...</span>     
-<span class="mi">1</span>
-<span class="mi">2</span>
-<span class="mi">3</span>
-<span class="n">D</span>
-<span class="n">E</span>
-<span class="n">F</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sling_it_into_a_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">love</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">sling_it_into_a_set</span>
-<span class="nb">set</span><span class="p">([</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="o">&gt;&gt;&gt;</span>
-</pre></div>
-
-
-<p>So it bungs all the sets of neighbours into one single set. Because of how Python sets work, this gets rid of any duplicate points - eg points which neighbour a couple of living cells should still only be mentioned once.</p>
-<p><code>|</code> is just Python's binary OR operator - so <code>cells_we_care_about</code> is a set which contains all points that are in the list of live cells OR the list of their neighbours</p>
-<p><code>count</code> counts neighbours for each living and dead cell. Diedrich then applies the rules for Conway's Game of Life in one line: 
-<em> A dead cell that has 3 live neighbours becomes alive
-</em> A live cell that has 2 live neighbours remains alive
-* Every other cell dies.</p>
-<h2>Sets are awesome</h2>
-<p>One of the reasons his implementation is so tidy and has so few lines is his great use of <code>set()</code>, one of the built-in Python types. Sets are particularly great for this problem because they contain only unique elements - if you try to add multiples of the same element to a set you only end up with one in there. This means any duplicate points are eliminated without having to think about it. </p>
-<p>For more examples of how to get good use out of Python's built-ins I recommend <a href="https://www.youtube.com/watch?v=lyDLAutA88s">Built in Super Heroes</a> by the excellent Dave Beazley. </p>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="./stop-writing-classes.html">posted at 00:00</a>
-                    &nbsp;&middot;&nbsp;<a href="./category/python.html" rel="tag">python</a>
-                    &nbsp;&middot;
-                    &nbsp;<a href="./tag/python.html" class="tags">python</a>
-                    &nbsp;<a href="./tag/classes.html" class="tags">classes</a>
-                    &nbsp;<a href="./tag/talks.html" class="tags">talks</a>
-                </div>
-		<a href="./stop-writing-classes.html#disqus_thread">Click to read and post comments</a>
             </article>
 
                 <div class="clear"></div>
