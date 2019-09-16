@@ -20,6 +20,7 @@
                 <li class="ephemeral selected"><a href="../category/misc.html">misc</a></li>
                 <li><a href="../">Home</a></li>
                 <li><a href="../pages/about.html">About Me</a></li>
+                <li><a href="../pages/talks.html">Talks</a></li>
                 <li><a href="https://github.com/raspberrycheesecake">GitHub</a></li>
                 <li><a href="mailto:hannah.hazi@cantab.net">Contact Me</a></li>
                 <li><a href="https://uk.linkedin.com/in/hannah-hazi-9b985a84">LinkedIn</a></li>
@@ -32,7 +33,102 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Feb 10, 2019</h4>
+        <div id="content">            <h4 class="date">Sep 16, 2019</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="../renpy.html" rel="bookmark" title="Permanent Link to &quot;Telling Stories With Python And Ren'Py&quot;">Telling Stories With Python And Ren'Py</a>
+                </h2>
+
+                
+                
+
+                <p>This is a write-up of a workshop I've given at <a href="https://www.meetup.com/CamPUG/events/263945805/">CamPUG</a> and <a href="https://2019.pyconuk.org/">PyCon UK 2019</a>. It was a lot of fun to deliver, and my participants came away with their own mini-games written in Ren'Py. I was impressed by the range of creative stories, everything from getting lost in Cardiff, storming Area 51, coaxing a grumpy cat, visiting a music festival, going to space, defeating animated fleas, visiting every pub in Cambridge, a child's guide to the Divine Right of Kings, interactive graffiti and more!</p>
+<p>I hope this post will be useful as a reference for workshop participants and those who couldn't make it along.</p>
+<h2>What is Interactive Fiction?</h2>
+<p>You might be familiar with the concept of interactive fiction from "Choose Your Own Adventure" books. </p>
+<p>Ever since computers came on the scene there has been interactive fiction here, too. <a href="http://textadventures.co.uk/games/view/5zyoqrsugeopel3ffhz_vq/zork">Zork</a>, one of the earliest examples, is a dungeon-crawling game where the player explores The Great Underground Empire by typing text commands.</p>
+<p>Using later tools like <a href="https://github.com/curiousdannii/parchment">Parchment</a> and <a href="https://twinery.org/wiki/start">Twine</a> people are still creating these text-based interactive fiction games. A text-based game I've enjoyed recently is <a href="http://iplayif.com/?story=http%3A%2F%2Fwww.ifarchive.org%2Fif-archive%2Fgames%2Fcompetition2002%2Fzcode%2Fmoonlit%2FMoonlit.z5">Moonlit Tower</a> by sci-fi author Yoon Ha Lee.</p>
+<p>Visual Novels are a genre of interactive fiction that combines pictures and text as a storytelling tool. They originated in Japan and many famous examples such as <em>Fate/Stay Night</em> and <em>Symphonic Rain</em> are Japanese. These games are often romance or relationship-themed, each path perhaps leading to a relationship with a different character.</p>
+<h2>Ren'Py</h2>
+<p><img alt="Ren'Py Icon" src="../images/renpy-icon.png"></p>
+<p><a href="https://renpy.org">Ren'Py</a> is a visual novel creation engine written in Python. It has its own syntax and style, but also allows you to embed pure Python for more complex gameplay mechanics.</p>
+<p>It is cross-platform and works on Mac, Linux and Windows. All that you need alongside it is a simple text editor that can convert tabs to spaces, such as gedit.</p>
+<h2>What can you do in Ren'Py?</h2>
+<h4>Label Jump For Branching Stories</h4>
+<p><img alt="Road Not Taken Screenshot" src="../images/road_not_taken.png"></p>
+<p>I would humbly suggest my own game <a href="https://github.com/RaspberryCheesecake/RoadNotTaken">The Road Not Taken</a> as a useful introduction to the <code>label</code> / <code>jump</code> mechanic. Take a look in the <code>script.rpy</code> file to follow how the game works. It demonstrates how menus work in the game and how you can use them to move to different choices, similar to a GOTO statement. It also includes an example of embedding music within gameplay to add a mood to a scene. Feel free to copy and modify it as a basis for your own games.</p>
+<h4>Custom GUI</h4>
+<p><img alt="Hotel Shower Knob Screenshot" src="../images/Hotel_Shower_Knob_gameplay.png"></p>
+<p><a href="https://yossarianiii.itch.io/ho">Hotel Shower Knob</a>, a game where you have to puzzle out an unfamiliar hotel bathroom to take a shower, is a good example of a custom GUI. Inside <code>options.rpy</code> the creator replaced the usual cursor with a custom image of a hand:</p>
+<div class="highlight"><pre><span></span>## The mouse clicker thingy.
+
+define config.mouse = { &#39;default&#39; : [ (&#39;cursor.png&#39;, 66, 95)] }
+</pre></div>
+
+
+<p>This makes for a unique visual experience. As the hand is Creative-Commons licenced, you could use it in your own games, too!</p>
+<h4>Embedded Python</h4>
+<p><img alt="Two Worlds Screenshot" src="../images/two-worlds-screenshot.png"></p>
+<p>Because Ren'Py is written in Python (2.7, if you're interested) it's easy to embed Python statements within it to acheive more complex effects such as creating mini-games. There are two ways to do this - prefixing single lines with <code>$</code> or using an indented block with the <code>python:</code> statement. I used <code>python:</code> statements within Ren'Py to create <code>Card</code> objects for my game <a href="https://github.com/RaspberryCheesecake/TwoWorldsGame/blob/master/game/script.rpy#L22">Two Worlds</a>.</p>
+<p>The key thing to notice is the definition of the <code>Card</code> class:</p>
+<div class="highlight"><pre><span></span># Define the card objects used to play the games with
+init:
+    python:
+
+        flowers = [&quot;card-front-land-flower%d.png&quot; % i for i in range(1, 3)]
+
+        class Card(object):
+            def __init__(self):
+                self.face_up = False
+                self.selected = False
+                self.number = 0
+                self.coords = [0, 0]
+                self.back = &quot;card-back-land.png&quot;
+                self.front = flowers[0]
+                self.paired = False
+
+            @property
+            def coord_text(self):
+                return &quot;{}, {}&quot;.format(self.coords[0], self.coords[1])
+</pre></div>
+
+
+<p>This happens during the <code>init:</code> block, before the game starts, so it is available from the beginning. I subsequently used this in the <code>sea_game.rpy</code> and <code>land_game.rpy</code> files using the <code>ui.interact()</code> statement and <code>action If</code> to connect it with Ren'Py responses to on-screen clicks.</p>
+<h4>Persistent Data</h4>
+<p>Another useful trick is the ability to store persistent data between plays of the game. </p>
+<p><img alt="Example From Long Live The Queen" src="../images/llq-ss3.jpg">
+<em>An example from Long Live The Queen</em></p>
+<p>This allows more satisfying gameplay such as unlocking new routes after a complete playthrough, and keeping track of player stats like Strength or Skill. Anything that can be <code>pickled</code> is suitable for this treatment. A simple example:</p>
+<div class="highlight"><pre><span></span>if persistent.secret_unlocked:
+        scene secret_room
+        e &quot;I see you&#39;ve played before!&quot;
+</pre></div>
+
+
+<p>To unlock this path the user must hit a piece of code that sets <code>$persistent.secret_unlocked = True</code></p>
+<p><code>persistent</code> is a special keyword in Ren'Py, so you shouldn't use it for anything else. Unlike other variables, if you haven't yet initialised it when you reach the if statement Ren'Py won't complain.</p>
+<h2>Useful sources of free images and sounds for your games</h2>
+<p>There are various community projects to collect images and sound to use in games with Creative Commons or similar licences.</p>
+<p>I've found <a href="www.pxhere.com">px here</a> a useful collection of images, particularly photos.</p>
+<p>I used <a href="https://fraqtive.mimec.org/">Fraqtive</a> to create the card images and backgrounds for Two Worlds.</p>
+<p>Useful sound sources include <a href="http://freemusicarchive.org">Free Music Archive</a> and for sound effects, <a href="https://freesound.org/">Free Sound</a></p>
+<h2>Example games written in Ren'Py</h2>
+<p><a href="https://joffeorama.itch.io/benthic-love">Benthic Love</a> – Michaela Joffe, Sonya Hallett</p>
+<p><a href="https://yossarianiii.itch.io/ho">Hotel Shower Knob</a> – Yoss III</p>
+<p><a href="https://lernakow.itch.io/dabopcr">Death And Burial Of Poor Cock Robin</a> – Lernakow</p>
+<p><a href="https://www.hanakogames.com/llq.shtml">Long Live The Queen</a> – Hanako Games</p>
+<p>And check out the <a href="https://itch.io/jam/nanoreno-2019">NaNoRenO</a> game jam each year during the month of March – or better still, take part!</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="../renpy.html">posted at 00:00</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="../tag/workshop.html" class="tags">Workshop</a>
+                    &nbsp;<a href="../tag/renpy.html" class="tags">Ren'Py</a>
+                    &nbsp;<a href="../tag/interactive-fiction.html" class="tags">Interactive Fiction</a>
+                </div>
+            </article>            <h4 class="date">Feb 10, 2019</h4>
 
             <article class="post">
                 <h2 class="title">
