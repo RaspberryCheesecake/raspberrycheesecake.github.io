@@ -19,6 +19,7 @@
             <ul>
                 <li class="selected"><a href="./">Home</a></li>
                 <li><a href="./pages/about.html">About Me</a></li>
+                <li><a href="./pages/talks.html">Talks</a></li>
                 <li><a href="https://github.com/raspberrycheesecake">GitHub</a></li>
                 <li><a href="mailto:hannah.hazi@cantab.net">Contact Me</a></li>
                 <li><a href="https://uk.linkedin.com/in/hannah-hazi-9b985a84">LinkedIn</a></li>
@@ -31,7 +32,103 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Apr 12, 2019</h4>
+        <div id="content">            <h4 class="date">Sep 16, 2019</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="./renpy.html" rel="bookmark" title="Permanent Link to &quot;Telling Stories With Python And Ren'Py&quot;">Telling Stories With Python And Ren'Py</a>
+                </h2>
+
+                
+                
+
+                <p>This is a write-up of a workshop I've given at <a href="https://www.meetup.com/CamPUG/events/263945805/">CamPUG</a> and <a href="https://2019.pyconuk.org/">PyCon UK 2019</a>. It was a lot of fun to deliver, and my participants came away with their own mini-games written in Ren'Py. I was impressed by the range of creative stories, everything from getting lost in Cardiff, storming Area 51, coaxing a grumpy cat, visiting a music festival, going to space, defeating animated fleas, visiting every pub in Cambridge, a child's guide to the Divine Right of Kings, interactive graffiti and more!</p>
+<p>I hope this post will be useful as a reference for workshop participants and those who couldn't make it along.</p>
+<h2>What is Interactive Fiction?</h2>
+<p>You might be familiar with the concept of interactive fiction from "Choose Your Own Adventure" books. </p>
+<p>Ever since computers came on the scene there has been interactive fiction here, too. <a href="http://textadventures.co.uk/games/view/5zyoqrsugeopel3ffhz_vq/zork">Zork</a>, one of the earliest examples, is a dungeon-crawling game where the player explores The Great Underground Empire by typing text commands.</p>
+<p>Using later tools like <a href="https://github.com/curiousdannii/parchment">Parchment</a> and <a href="https://twinery.org/wiki/start">Twine</a> people are still creating these text-based interactive fiction games. A text-based game I've enjoyed recently is <a href="http://iplayif.com/?story=http%3A%2F%2Fwww.ifarchive.org%2Fif-archive%2Fgames%2Fcompetition2002%2Fzcode%2Fmoonlit%2FMoonlit.z5">Moonlit Tower</a> by sci-fi author Yoon Ha Lee.</p>
+<p>Visual Novels are a genre of interactive fiction that combines pictures and text as a storytelling tool. They originated in Japan and many famous examples such as <em>Fate/Stay Night</em> and <em>Symphonic Rain</em> are Japanese. These games are often romance or relationship-themed, each path perhaps leading to a relationship with a different character.</p>
+<h2>Ren'Py</h2>
+<p><img alt="Ren'Py Icon" src="./images/renpy-icon.png"></p>
+<p><a href="https://renpy.org">Ren'Py</a> is a visual novel creation engine written in Python. It has its own syntax and style, but also allows you to embed pure Python for more complex gameplay mechanics.</p>
+<p>It is cross-platform and works on Mac, Linux and Windows. All that you need alongside it is a simple text editor that can convert tabs to spaces, such as gedit.</p>
+<h2>What can you do in Ren'Py?</h2>
+<h4>Label Jump For Branching Stories</h4>
+<p><img alt="Road Not Taken Screenshot" src="./images/road_not_taken.png"></p>
+<p>I would humbly suggest my own game <a href="https://github.com/RaspberryCheesecake/RoadNotTaken">The Road Not Taken</a> as a useful introduction to the <code>label</code> / <code>jump</code> mechanic. Take a look in the <code>script.rpy</code> file to follow how the game works. It demonstrates how menus work in the game and how you can use them to move to different choices, similar to a GOTO statement. It also includes an example of embedding music within gameplay to add a mood to a scene. Feel free to copy and modify it as a basis for your own games.</p>
+<h4>Custom GUI</h4>
+<p><img alt="Hotel Shower Knob Screenshot" src="./images/Hotel_Shower_Knob_gameplay.png"></p>
+<p><a href="https://yossarianiii.itch.io/ho">Hotel Shower Knob</a>, a game where you have to puzzle out an unfamiliar hotel bathroom to take a shower, is a good example of a custom GUI. Inside <code>options.rpy</code> the creator replaced the usual cursor with a custom image of a hand:</p>
+<div class="highlight"><pre><span></span>## The mouse clicker thingy.
+
+define config.mouse = { &#39;default&#39; : [ (&#39;cursor.png&#39;, 66, 95)] }
+</pre></div>
+
+
+<p>This makes for a unique visual experience. As the hand is Creative-Commons licenced, you could use it in your own games, too!</p>
+<h4>Embedded Python</h4>
+<p><img alt="Two Worlds Screenshot" src="./images/two-worlds-screenshot.png"></p>
+<p>Because Ren'Py is written in Python (2.7, if you're interested) it's easy to embed Python statements within it to acheive more complex effects such as creating mini-games. There are two ways to do this - prefixing single lines with <code>$</code> or using an indented block with the <code>python:</code> statement. I used <code>python:</code> statements within Ren'Py to create <code>Card</code> objects for my game <a href="https://github.com/RaspberryCheesecake/TwoWorldsGame/blob/master/game/script.rpy#L22">Two Worlds</a>.</p>
+<p>The key thing to notice is the definition of the <code>Card</code> class:</p>
+<div class="highlight"><pre><span></span># Define the card objects used to play the games with
+init:
+    python:
+
+        flowers = [&quot;card-front-land-flower%d.png&quot; % i for i in range(1, 3)]
+
+        class Card(object):
+            def __init__(self):
+                self.face_up = False
+                self.selected = False
+                self.number = 0
+                self.coords = [0, 0]
+                self.back = &quot;card-back-land.png&quot;
+                self.front = flowers[0]
+                self.paired = False
+
+            @property
+            def coord_text(self):
+                return &quot;{}, {}&quot;.format(self.coords[0], self.coords[1])
+</pre></div>
+
+
+<p>This happens during the <code>init:</code> block, before the game starts, so it is available from the beginning. I subsequently used this in the <code>sea_game.rpy</code> and <code>land_game.rpy</code> files using the <code>ui.interact()</code> statement and <code>action If</code> to connect it with Ren'Py responses to on-screen clicks.</p>
+<h4>Persistent Data</h4>
+<p>Another useful trick is the ability to store persistent data between plays of the game. </p>
+<p><img alt="Example From Long Live The Queen" src="./images/llq-ss3.jpg">
+<em>An example from Long Live The Queen</em></p>
+<p>This allows more satisfying gameplay such as unlocking new routes after a complete playthrough, and keeping track of player stats like Strength or Skill. Anything that can be <code>pickled</code> is suitable for this treatment. A simple example:</p>
+<div class="highlight"><pre><span></span>if persistent.secret_unlocked:
+        scene secret_room
+        e &quot;I see you&#39;ve played before!&quot;
+</pre></div>
+
+
+<p>To unlock this path the user must hit a piece of code that sets <code>$persistent.secret_unlocked = True</code></p>
+<p><code>persistent</code> is a special keyword in Ren'Py, so you shouldn't use it for anything else. Unlike other variables, if you haven't yet initialised it when you reach the if statement Ren'Py won't complain.</p>
+<h2>Useful sources of free images and sounds for your games</h2>
+<p>There are various community projects to collect images and sound to use in games with Creative Commons or similar licences.</p>
+<p>I've found <a href="www.pxhere.com">px here</a> a useful collection of images, particularly photos.</p>
+<p>I used <a href="https://fraqtive.mimec.org/">Fraqtive</a> to create the card images and backgrounds for Two Worlds.</p>
+<p>Useful sound sources include <a href="http://freemusicarchive.org">Free Music Archive</a> and for sound effects, <a href="https://freesound.org/">Free Sound</a></p>
+<h2>Example games written in Ren'Py</h2>
+<p><a href="https://joffeorama.itch.io/benthic-love">Benthic Love</a> – Michaela Joffe, Sonya Hallett</p>
+<p><a href="https://yossarianiii.itch.io/ho">Hotel Shower Knob</a> – Yoss III</p>
+<p><a href="https://lernakow.itch.io/dabopcr">Death And Burial Of Poor Cock Robin</a> – Lernakow</p>
+<p><a href="https://www.hanakogames.com/llq.shtml">Long Live The Queen</a> – Hanako Games</p>
+<p>And check out the <a href="https://itch.io/jam/nanoreno-2019">NaNoRenO</a> game jam each year during the month of March – or better still, take part!</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="./renpy.html">posted at 00:00</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="./tag/workshop.html" class="tags">Workshop</a>
+                    &nbsp;<a href="./tag/renpy.html" class="tags">Ren'Py</a>
+                    &nbsp;<a href="./tag/interactive-fiction.html" class="tags">Interactive Fiction</a>
+                </div>
+		<a href="./renpy.html#disqus_thread">Click to read and post comments</a>
+            </article>            <h4 class="date">Apr 12, 2019</h4>
 
             <article class="post">
                 <h2 class="title">
@@ -63,7 +160,7 @@ This was unexpectedly hard! It was a metaphor for how difficult it can be to bre
 </ul>
 <p><img alt="A Product Owner is like a Duchess" src="./images/scrum-roles-mindmap.jpg">
 <em>A mindmap from my notes about the different Scrum roles</em></p>
-<p>Following the training, I'm now a Certified Scrum Master. There have been <a href="https://www.infoq.com/news/2009/03/more-on-scrum-certification-test">some intelligent criticisms</a> of this certification process, including by some of its founders. The fact that there is a certification exam seems to somewhat devalue the training experience itself. I didn't really need to complete the training to do the certification exam - its questions are purely based on the <a href="https://www.scrum.org/resources/scrum-guide">Scrum Guide</a> and a few on the <a href="https://agilemanifesto.org/">Agile Manifesto</a>. How well can a multiple-choice test about a short document really hope to measure someone's competence in such a fuzzy relationship-centred domain as taking on the role of a Scrum Master? It's always going to fall short, I think. </p>
+<p>Following the training, I'm a Certified Scrum Master. There have been <a href="https://www.infoq.com/news/2009/03/more-on-scrum-certification-test">some intelligent criticisms</a> of this certification process, including by some of its founders. The fact that there is a certification exam seems to somewhat devalue the training experience itself. I didn't really need to complete the training to do the certification exam - its questions are purely based on the <a href="https://www.scrum.org/resources/scrum-guide">Scrum Guide</a> and a few on the <a href="https://agilemanifesto.org/">Agile Manifesto</a>. How well can a multiple-choice test about a short document really hope to measure someone's competence in such a fuzzy relationship-centred domain as taking on the role of a Scrum Master? It's always going to fall short, I think. I've acted as a Scrum Master for several years already without the certification, so I was interested to see what it covered and didn't touch on.</p>
 <p>I passed the exam. But the things that will really stay with me are the advice of the trainer and the discussions I had during the course, especially with others whose companies are also on the path to adopting more Agile practices. I certainly recommend Tobias as a teacher: his creative exercises and the way he presented the course helped grow my understanding and confidence in the role of Scrum Master. I'd like to attend his <a href="https://tobiasmayer.uk/scrum/smclinics">Scrum Master Clinic</a> - I think it will really help to have that ongoing mentoring and peer advice.</p>
                 <div class="clear"></div>
 
@@ -803,40 +900,6 @@ irb(main):001:0&gt; 1+2
                     &nbsp;<a href="./tag/cpsg.html" class="tags">CPSG</a>
                 </div>
 		<a href="./first-ruby.html#disqus_thread">Click to read and post comments</a>
-            </article>            <h4 class="date">Jan 25, 2017</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="./clean-coder.html" rel="bookmark" title="Permanent Link to &quot;Be a Coding Professional&quot;">Be a Coding Professional</a>
-                </h2>
-
-                
-                
-
-                <p>I was looking back through my mindmaps and came across this one, which I made when I first read "The Clean Coder" by 'Uncle' Bob Martin. I remember the book fondly and thought it might be fun to do a proper review.</p>
-<p><img alt="My mindmap of The Clean Coder" src="./images/clean-coder.jpg"></p>
-<h1>Overall Impressions</h1>
-<p>The Clean Coder is a great read - Martin is a legend for a reason and his writing style is compelling, fun and readable. As the subtitle of my mindmap says, it's great! The book surprised me because it's not really about the mechanics of writing good code - it's all about professionalism (the 'clean' part) and having a set of ethics as someone who works in software. Martin uses some funny and horrifying war stories from his experiences as a novice programmer-for-hire to flesh out the book and explain what can happen when you don't have robust professionalism in your practice. I found myself nodding along as he described the team dynamics behind giving bad time estimates for completing a project, and how one of the most professional things you can do is sometimes to say "no" to tasks. </p>
-<p><img alt="Yoda and Robert Martin have a lot in common" src="./images/frowny-yoda.png">
-<strong>There is no "try".</strong></p>
-<p>He also has some very insightful things to say about the dark side of 'Agile' practices, and how driving too hard toward a goal just-this-once is never a good idea. If nothing else, he points out, it doesn't even get you what you wanted! The code produced in those sort of conditions is invariably horribly flawed "3am code" and/or turns out to solve the wrong problem because those creating it were too busy trying to push something out the door to pay attention to the changing needs of their client. I'm reminded of <a href="http://onfoodandcoding.blogspot.co.uk/2013/10/time-value-and-dark-side-of-agile.html">this blog post from On Food and Coding</a>:</p>
-<blockquote>
-<p>With a given division of labour and a given level of skill, the proprietor can keep more money for themselves if they can get their staff to work for longer each day or to work with greater intensity. And when we deconstruct the terminology used by the most popular Agile process, Scrum, we find an unfortunate allusion to work at a greater intensity. For example, the week-by-week cycle of development is called an "iteration" in practically every other software process, including Extreme Programming. In Scrum this time period is called a Sprint. What associations does that conjure up? Well when you sprint you make an extreme effort to go as fast as possible, an effort that you can only keep up for a short time. That's what "sprint" means in everyday life. </p>
-</blockquote>
-<p>Martin viscerally describes the sort of race-to-the-bottom conditions that this, coupled with optimistic overestimation of one's own ability to finish tasks, can induce.</p>
-<h1>Some reservations</h1>
-<p>One thing I disagree with is the amount of time he suggests allotting to your own personal practice - pairing with new people, doing Code Katas, listening to podcasts on software, picking up a new language, generally honing your craft. I absolutely think it's important to make sure you do some of this stuff outside of work - one of the reasons I started this blog is to motivate myself to learn more by providing a place to write about what I'm learning and have some accountability. But the time he suggests blocking out (<em>20 hours!</em>) is just unrealistic for most people. I think this very high bar is more likely to discourage would-be software folks from jumping into the field. I think understanding more about Martin's background explains where this comes from - he has a typically American 'Sleep is for the Weak!' attitude which has only <em>partly</em> been mollified by his realisation that if you work for too long, you stop producing things of worth because you're unable to concentrate well enough. Martin doesn't quite go far enough with his observations on 'Focus manna' to encompass leisure-time programming as well. Following his arguments, I have limited time in the week to practice my craft before I'm too tired for it to be of use - and I'm sure that line falls in different places for different people.</p>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="./clean-coder.html">posted at 00:00</a>
-                    &nbsp;&middot;&nbsp;<a href="./category/ethics.html" rel="tag">ethics</a>
-                    &nbsp;&middot;
-                    &nbsp;<a href="./tag/books.html" class="tags">books</a>
-                    &nbsp;<a href="./tag/ethics.html" class="tags">ethics</a>
-                    &nbsp;<a href="./tag/uncle-bob-martin.html" class="tags">'Uncle' Bob Martin</a>
-                </div>
-		<a href="./clean-coder.html#disqus_thread">Click to read and post comments</a>
             </article>
 
                 <div class="clear"></div>

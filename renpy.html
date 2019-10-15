@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+        <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Hannah Clare Wray Hazi | articles tagged "Workshop"</title>
-    <link rel="shortcut icon" type="image/png" href="../favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../theme/css/screen.css" type="text/css" />
-    <link rel="stylesheet" href="../theme/css/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../theme/css/print.css" type="text/css" media="print" />
+    <title>Hannah Clare Wray Hazi | Telling Stories With Python And Ren'Py</title>
+    <link rel="shortcut icon" type="image/png" href="./favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./theme/css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/print.css" type="text/css" media="print" />
     <meta name="generator" content="Pelican" />
     <meta name="description" content="" />
     <meta name="author" content="Hannah Hazi" />
+
+    <meta name="keywords" content="Workshop,Ren'Py,Interactive Fiction" />
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li class="ephemeral selected"><a href="../tag/workshop.html">Workshop</a></li>
-                <li><a href="../">Home</a></li>
-                <li><a href="../pages/about.html">About Me</a></li>
-                <li><a href="../pages/talks.html">Talks</a></li>
+                <li><a href="./">Home</a></li>
+                <li><a href="./pages/about.html">About Me</a></li>
+                <li><a href="./pages/talks.html">Talks</a></li>
                 <li><a href="https://github.com/raspberrycheesecake">GitHub</a></li>
                 <li><a href="mailto:hannah.hazi@cantab.net">Contact Me</a></li>
                 <li><a href="https://uk.linkedin.com/in/hannah-hazi-9b985a84">LinkedIn</a></li>
-                <li><a href="../archives">Archives</a></li>
+                <li><a href="./archives">Archives</a></li>
             </ul>
         </nav>
         <div class="header_box">
-            <h1><a href="../">Hannah Clare Wray Hazi</a></h1>
+            <h1><a href="./">Hannah Clare Wray Hazi</a></h1>
             <h2>I love making beautiful things.</h2>
         </div>
     </header>
@@ -37,7 +38,7 @@
 
             <article class="post">
                 <h2 class="title">
-                    <a href="../renpy.html" rel="bookmark" title="Permanent Link to &quot;Telling Stories With Python And Ren'Py&quot;">Telling Stories With Python And Ren'Py</a>
+                    <a href="./renpy.html" rel="bookmark" title="Permanent Link to &quot;Telling Stories With Python And Ren'Py&quot;">Telling Stories With Python And Ren'Py</a>
                 </h2>
 
                 
@@ -51,15 +52,15 @@
 <p>Using later tools like <a href="https://github.com/curiousdannii/parchment">Parchment</a> and <a href="https://twinery.org/wiki/start">Twine</a> people are still creating these text-based interactive fiction games. A text-based game I've enjoyed recently is <a href="http://iplayif.com/?story=http%3A%2F%2Fwww.ifarchive.org%2Fif-archive%2Fgames%2Fcompetition2002%2Fzcode%2Fmoonlit%2FMoonlit.z5">Moonlit Tower</a> by sci-fi author Yoon Ha Lee.</p>
 <p>Visual Novels are a genre of interactive fiction that combines pictures and text as a storytelling tool. They originated in Japan and many famous examples such as <em>Fate/Stay Night</em> and <em>Symphonic Rain</em> are Japanese. These games are often romance or relationship-themed, each path perhaps leading to a relationship with a different character.</p>
 <h2>Ren'Py</h2>
-<p><img alt="Ren'Py Icon" src="../images/renpy-icon.png"></p>
+<p><img alt="Ren'Py Icon" src="./images/renpy-icon.png"></p>
 <p><a href="https://renpy.org">Ren'Py</a> is a visual novel creation engine written in Python. It has its own syntax and style, but also allows you to embed pure Python for more complex gameplay mechanics.</p>
 <p>It is cross-platform and works on Mac, Linux and Windows. All that you need alongside it is a simple text editor that can convert tabs to spaces, such as gedit.</p>
 <h2>What can you do in Ren'Py?</h2>
 <h4>Label Jump For Branching Stories</h4>
-<p><img alt="Road Not Taken Screenshot" src="../images/road_not_taken.png"></p>
+<p><img alt="Road Not Taken Screenshot" src="./images/road_not_taken.png"></p>
 <p>I would humbly suggest my own game <a href="https://github.com/RaspberryCheesecake/RoadNotTaken">The Road Not Taken</a> as a useful introduction to the <code>label</code> / <code>jump</code> mechanic. Take a look in the <code>script.rpy</code> file to follow how the game works. It demonstrates how menus work in the game and how you can use them to move to different choices, similar to a GOTO statement. It also includes an example of embedding music within gameplay to add a mood to a scene. Feel free to copy and modify it as a basis for your own games.</p>
 <h4>Custom GUI</h4>
-<p><img alt="Hotel Shower Knob Screenshot" src="../images/Hotel_Shower_Knob_gameplay.png"></p>
+<p><img alt="Hotel Shower Knob Screenshot" src="./images/Hotel_Shower_Knob_gameplay.png"></p>
 <p><a href="https://yossarianiii.itch.io/ho">Hotel Shower Knob</a>, a game where you have to puzzle out an unfamiliar hotel bathroom to take a shower, is a good example of a custom GUI. Inside <code>options.rpy</code> the creator replaced the usual cursor with a custom image of a hand:</p>
 <div class="highlight"><pre><span></span>## The mouse clicker thingy.
 
@@ -69,7 +70,7 @@ define config.mouse = { &#39;default&#39; : [ (&#39;cursor.png&#39;, 66, 95)] }
 
 <p>This makes for a unique visual experience. As the hand is Creative-Commons licenced, you could use it in your own games, too!</p>
 <h4>Embedded Python</h4>
-<p><img alt="Two Worlds Screenshot" src="../images/two-worlds-screenshot.png"></p>
+<p><img alt="Two Worlds Screenshot" src="./images/two-worlds-screenshot.png"></p>
 <p>Because Ren'Py is written in Python (2.7, if you're interested) it's easy to embed Python statements within it to acheive more complex effects such as creating mini-games. There are two ways to do this - prefixing single lines with <code>$</code> or using an indented block with the <code>python:</code> statement. I used <code>python:</code> statements within Ren'Py to create <code>Card</code> objects for my game <a href="https://github.com/RaspberryCheesecake/TwoWorldsGame/blob/master/game/script.rpy#L22">Two Worlds</a>.</p>
 <p>The key thing to notice is the definition of the <code>Card</code> class:</p>
 <div class="highlight"><pre><span></span># Define the card objects used to play the games with
@@ -97,7 +98,7 @@ init:
 <p>This happens during the <code>init:</code> block, before the game starts, so it is available from the beginning. I subsequently used this in the <code>sea_game.rpy</code> and <code>land_game.rpy</code> files using the <code>ui.interact()</code> statement and <code>action If</code> to connect it with Ren'Py responses to on-screen clicks.</p>
 <h4>Persistent Data</h4>
 <p>Another useful trick is the ability to store persistent data between plays of the game. </p>
-<p><img alt="Example From Long Live The Queen" src="../images/llq-ss3.jpg">
+<p><img alt="Example From Long Live The Queen" src="./images/llq-ss3.jpg">
 <em>An example from Long Live The Queen</em></p>
 <p>This allows more satisfying gameplay such as unlocking new routes after a complete playthrough, and keeping track of player stats like Strength or Skill. Anything that can be <code>pickled</code> is suitable for this treatment. A simple example:</p>
 <div class="highlight"><pre><span></span>if persistent.secret_unlocked:
@@ -122,61 +123,13 @@ init:
                 <div class="clear"></div>
 
                 <div class="info">
-                    <a href="../renpy.html">posted at 00:00</a>
+                    <a href="./renpy.html">posted at 00:00</a>
                     &nbsp;&middot;
-                    &nbsp;<a href="../tag/workshop.html" class="tags selected">Workshop</a>
-                    &nbsp;<a href="../tag/renpy.html" class="tags">Ren'Py</a>
-                    &nbsp;<a href="../tag/interactive-fiction.html" class="tags">Interactive Fiction</a>
+                    &nbsp;<a href="./tag/workshop.html" class="tags">Workshop</a>
+                    &nbsp;<a href="./tag/renpy.html" class="tags">Ren'Py</a>
+                    &nbsp;<a href="./tag/interactive-fiction.html" class="tags">Interactive Fiction</a>
                 </div>
-		<a href="../renpy.html#disqus_thread">Click to read and post comments</a>
-            </article>            <h4 class="date">Apr 12, 2019</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="../learning-scrum.html" rel="bookmark" title="Permanent Link to &quot;Agile Workshop&quot;">Agile Workshop</a>
-                </h2>
-
-                
-                
-
-                <p>I recently attended a Certified Scrum Master course taught by Tobias Mayer of <a href="https://www.adventureswithagile.com/">Adventures With Agile</a>. I really enjoyed the course and the style in which it was taught. There was no death by Powerpoint! Tobias actually constructed a board on the wall with columns to keep track of the tasks comprising the course, and we added extra task cards for further discussion and questions as we went along. </p>
-<p><img alt="The board" src="../images/scrum-course-scrum-board.jpg">
-<em>Here's what the board looked like near the start of the two day course.</em></p>
-<p>We held 'Sprints' of an hour or so at a time, diving into aspects of Agile and then reviewing how it went, to improve our group process. Sometimes the teacher would stand and talk about a concept for a while, but mostly the course was interactive, especially during the second day where we broke out into groups for longer sessions. </p>
-<p>The exercises we did included 'Point and Go': a game where players stand in a circle and have to </p>
-<ul>
-<li>Point to someone else whose place you want to take</li>
-<li>Wait for them to say "Go"</li>
-<li>Start moving forwards to them</li>
-<li>Before you reach them, they have to find another place to go (and the cycle continues!)
-This was unexpectedly hard! It was a metaphor for how difficult it can be to break out of an established pattern of behaviour at work. Even once we got into a rhythm, if things sped up or someone panicked, our orderly pattern fell apart.</li>
-</ul>
-<p>Another exercise I enjoyed was coming up with different metaphors for Scrum. We broke out into groups and thought up some different ideas - I was impressed by the variety and how each of them fitted different parts of what Scrum can look like. Some of my favourites were:</p>
-<ul>
-<li>a garden growing and changing over time</li>
-<li>a cocktail bar developing new drinks</li>
-<li>a stand-up comedian working on their routine</li>
-<li>a graffiti crew making a work of art for their neighbourhood</li>
-<li>Jurassic Park (this was mine!)</li>
-</ul>
-<p><img alt="A Product Owner is like a Duchess" src="../images/scrum-roles-mindmap.jpg">
-<em>A mindmap from my notes about the different Scrum roles</em></p>
-<p>Following the training, I'm a Certified Scrum Master. There have been <a href="https://www.infoq.com/news/2009/03/more-on-scrum-certification-test">some intelligent criticisms</a> of this certification process, including by some of its founders. The fact that there is a certification exam seems to somewhat devalue the training experience itself. I didn't really need to complete the training to do the certification exam - its questions are purely based on the <a href="https://www.scrum.org/resources/scrum-guide">Scrum Guide</a> and a few on the <a href="https://agilemanifesto.org/">Agile Manifesto</a>. How well can a multiple-choice test about a short document really hope to measure someone's competence in such a fuzzy relationship-centred domain as taking on the role of a Scrum Master? It's always going to fall short, I think. I've acted as a Scrum Master for several years already without the certification, so I was interested to see what it covered and didn't touch on.</p>
-<p>I passed the exam. But the things that will really stay with me are the advice of the trainer and the discussions I had during the course, especially with others whose companies are also on the path to adopting more Agile practices. I certainly recommend Tobias as a teacher: his creative exercises and the way he presented the course helped grow my understanding and confidence in the role of Scrum Master. I'd like to attend his <a href="https://tobiasmayer.uk/scrum/smclinics">Scrum Master Clinic</a> - I think it will really help to have that ongoing mentoring and peer advice.</p>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="../learning-scrum.html">posted at 00:00</a>
-                    &nbsp;&middot;&nbsp;<a href="../category/agile.html" rel="tag">agile</a>
-                    &nbsp;&middot;
-                    &nbsp;<a href="../tag/scrum.html" class="tags">scrum</a>
-                    &nbsp;<a href="../tag/coaching.html" class="tags">coaching</a>
-                    &nbsp;<a href="../tag/agile.html" class="tags">agile</a>
-                    &nbsp;<a href="../tag/workshop.html" class="tags">workshop</a>
-                </div>
-		<a href="../learning-scrum.html#disqus_thread">Click to read and post comments</a>
             </article>
-
             <div class="clear"></div>
             <footer>
                 <p>
