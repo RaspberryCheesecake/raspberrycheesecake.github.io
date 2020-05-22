@@ -34,7 +34,70 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Sep 16, 2019</h4>
+        <div id="content">            <h4 class="date">May 22, 2020</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="../unexploded.html" rel="bookmark" title="Permanent Link to &quot;Unexploded Bombs&quot;">Unexploded Bombs</a>
+                </h2>
+
+                
+                
+
+                <p><img alt="Masts" src="../images/ss-richard-montgomery-masts.jpg">
+<em>Masts of the SS Richard Montgomery. Photo by Clem Rutter, Rochester, Kent <a href="https://creativecommons.org/licenses/by/3.0">CC BY</a></em></p>
+<p>I'd like to introduce you to the SS Richard Montgomery. For those who don't know the story already, it's quite extraordinary. </p>
+<p>Towards the end of WWII, a Liberty Ship, the SS Richard Montgomery, ran aground on shifting sands just off the coast of Sheerness at the mouth of the Thames Estuary. She was loaded with over 6,000 tonnes of high-explosive bombs and detonators. Salvage operations managed to remove some of the explosives, but before the ship could be made safe it sank further and salvage was abandoned. The ship and her thousands of tonnes of remaining explosives was then left to sit for over 75 years. She is still there.</p>
+<p>One of the most remarkable things about the wreck is her location. She lies in shallow water just 2.4 km from the seaside town of Sheerness. Not only that, but she is less than 200m from a busy shipping lane, and remarkably close to the <a href="https://en.wikipedia.org/wiki/Grain_LNG_Terminal">Grain Liquid Natural Gas Terminal</a>, the largest Liquified Natural Gas facility in Europe.</p>
+<h2>How dangerous is it?</h2>
+<p>WWII ordinance turns up every now and then during construction projects. Some <a href="https://www.cambridge-news.co.uk/news/cambridge-news/fire-ice-rink-building-site-14003659">unexploded WWII grenades were discovered</a> while building an ice rink in my home town of Cambridge. The discovery triggered a visit from the bomb disposal squad and emergency services, alongside a limitation on flights in and out of Cambridge Airport until the grenades could be made safe.</p>
+<p>But the amount of unexploded munitions here is in an entirely different category. There are no clear records of how much ordinance was left on the ship, but according to <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/851504/2000_survey_report_montgomery.pdf">an official MCA report</a> the ship likely contains more than 9000 explosives including cluster bombs and hundreds of giant 2,000lb 'blockbuster' bombs.It's hard to comprehend their explosive power should they go off. </p>
+<p>A <a href="https://www.newscientist.com/article/mg18324615-100-the-doomsday-wreck/">New Scientist investigation from 2004</a> suggests that spontaneous detonation of the entire cargo would hurl a column of debris up to 3 kilometres into the air, send a tsunami barrelling up the Thames and cause a shock wave that would damage buildings for miles around, including the liquid gas containers on the nearby Isle of Grain, which could detonate in turn.</p>
+<h2>What happens next?</h2>
+<p><img alt="Map of location" src="../images/map_SS_Richard_Montgomery.png">
+<em>Suggested locations of new airport in Thames Estuary. By Ordnance Survey with modifications by Prioryman <a href="https://commons.wikimedia.org/w/index.php?curid=26983622">CC BY 3.0</a></em> </p>
+<p>Some demolition experts are content to let the wreck lie, hoping that time and tide will reduce the deadliness of her cargo. They argue that any attempt to clear the bombs from the wreck would be riskier than letting her lie. These arguments give the example of the explosion of the Kielce, a smaller munitions wreck which was more than 6km out to sea. A failed salvage operation there in 1967 set off an explosion that measured 4.5 on the Richter scale and damaged property in nearby Folkestone.</p>
+<p>However, others disagree and argue that the wreck is actually becoming more dangerous over time. Phosphorous is now apparently leaking from the munitions aboard, evident as flames on the surface of the water where it burns in contact with air. These can sometimes be seen at night by local residents.</p>
+<p>Another possibility is a collision. There have <a href="https://www.bbc.com/future/article/20151027-the-ticking-time-bomb-of-the-thames">already been at least 22 near-misses</a> where shipping traffic only just steered away from the exclusion zone around the wreck in time. One particularly harrowing episode occurred in May 1980 when a Danish chemical tanker, 'Mare Altum', steered aside only minutes before she would have impacted the Montgomery. </p>
+<p>There have been <a href="https://www.theyworkforyou.com/lords/?id=2019-07-03a.1499.0#g1499.2">persistent questions in Parliament</a> asked about the subject. <a href="https://www.gov.uk/government/publications/the-ss-richard-montgomery-information-and-survey-reports">Recent surveys</a> suggest that the condition of the wreck is rapidly deteriorating, which might lead to a sudden catastrophic collapse. Dave Welch, a former Royal Navy bomb disposal expert, who has advised the government on the SS Richard Montgomery's munitions, says:</p>
+<blockquote>
+<p>"We can’t continue just leaving the wreck to fall apart. Somebody at some point in the next five to ten years is going to have a very difficult decision to make and I would say the sooner it’s made, the easier and cheaper it will be as a solution."</p>
+</blockquote>
+<p>So far, no solution is in sight.</p>
+<h1>How does this relate to programming, anyway?</h1>
+<p>Every codebase has its unexploded bombs. Not so potentially serious as the SS Richard Montgomery, perhaps. But our code is out there driving all sorts of things in the real world. If we neglect potentially serious problems, we can harm people just as easily as other kinds of engineers.</p>
+<h2>Take your bug reports seriously</h2>
+<p>It can be too easy to dismiss user reports of bugs or accidental misuses of your application. Because we are so familiar with our own code, it can lead to a feeling of contempt for the person who doesn't approach the software in the same way that we do, or have as much knowledge about the underlying structure. And there is of course a natural feeling of defensiveness toward our own work. It can be humbling to find a bug in what you had hoped was well-crafted code, a blow to your ego and confidence as a programmer, perhaps.</p>
+<p>This kind of misplaced confidence can be lethal. In the <a href="https://en.wikipedia.org/wiki/Therac-25">Therac-25 Incidents</a> at least 6 cancer patients were given hundreds of times the desired dose of radiation therapy. This resulted in serious injuries and deaths. The malfunctions were reported early to the manufacturer, who sent engineers to a hospital where one of the lethal accidents occurred. They spent a day running the machine through tests but could not reproduce the critical malfuction, code 54, which only appeared when users typed with a certain fast frequency as experienced operators sometimes could. Because the error that caused the lethal bug was not observed by company investigators, they concluded it was "not possible for the Therac-25 to overdose a patient". It took another tragic accidental death to prove them wrong. This <a href="https://web.archive.org/web/20041128024227/http://www.cs.umd.edu/class/spring2003/cmsc838p/Misc/therac.pdf">excellent analysis of the accidents</a> dissects the timeline of events and has valuable lessons for us, particularly medical software developers.</p>
+<p>We can be falsely confident about our code fixes, too, thinking that they resolve an issue when really they don't. It takes a particular critical, persistent mindset to debug a system well and really fix what the root of a problem was. The excellent rules of thumb in <a href="http://debuggingrules.com/?page_id=40">Dave Agans' 'Debugging'</a> book are something I return to time and again when tackling software problems. I encourage you to print out the poster and put it on your wall! One of his key points is that until you can reliably trigger a bug, you don't know what the true cause is or whether a fix has addressed the bug or not. Intermittent faults which only appear under certain conditions, like the problems with Therac-25, can be the hardest things to address.</p>
+<h2>Listen to the voice of inexperience</h2>
+<p>Listen to newcomers - interns, new starters, people approaching a piece of the code they haven't worked on before. It's very easy to become habituated to a worrying situation - to live atop an unexploded bomb - and sometimes the only way to snap out of your ingrained habit of dismissing a problem is to listen to someone new worry about it. </p>
+<p>I would argue that part of the onboarding process for programmers joining a new team should be to ask them what 'unexploded bombs' they might see in the code. There's usually a "and do <em>you</em> have any questions for <em>us</em>" stage in an internship check-in, for instance, but we rarely take the feedback we recieve this way seriously, or get enough detail to understand what about the codebase might be confusing or painful to work with.</p>
+<p>Doing a '<a href="https://www.youtube.com/watch?v=5VZrCnKLmP8">Code Walk</a>' structured walkthrough of the code can be very illuminating. (I <em>highly</em> recommend this talk by Mary Chester-Kadwell - it has really shaped the way I teach and learn about new codebases). In the process, pay attention to the questions your new team-mate asks and reflect on what they say about the health of the different parts of your codebase. Is there anything where when you explain it aloud, it seems convoluted and awkward, or counter-intuitive? Anywhere you particularly wish there was documentation to show your new recruit? Those places may be where problems are lurking.</p>
+<h2>Pay attention to the jokes</h2>
+<p><img alt="Mermaid of Sheerness" src="../images/montgomery-mermaid-mural.jpg">
+<em>Mural by Dean Tweedy made for the Promenade Arts Festival in 2015 - photo Andy Hebden</em></p>
+<p>Matt Brown, chairman of Sheerness Enhancement Association for Leisure, condemned the mural <a href="https://www.kentonline.co.uk/sheerness/news/anger-over-terrorist-mermaid-mural-41963/">in the local newspaper</a>, saying: </p>
+<blockquote>
+<p>"If I was a family visiting, whether I knew about the Montgomery or not, I wouldn’t want to be sitting at the leisure park with the kids being reminded you have those explosives out there."</p>
+</blockquote>
+<p>The artist rebutted: "I wanted to make people aware of the Montgomery as it’s part of Sheerness. Some people would like to deny its existence." </p>
+<p>The mermaid makes some local people uncomfortable because it reveals a truth about their town they'd rather not have to acknowledge - the ever-present danger to their lives from the offshore explosives. For a certain kind of authority figure, the <em>reminder</em> of a dangerous situation is worse than the actual danger, because without the reminder they can continue to live their lives without having to address the elephant in the room.</p>
+<p><img alt="XCKD Data Pipeline" src="../images/data_pipeline.png">
+<em>This xkcd strip about data pipelines makes me laugh - but it also makes me think about the robustness of my code.</em></p>
+<p>Sometimes the equivalent of a Sheerness Mermaid Mural is the only way you can spot a problem that's become engrained in the way your code is put together. Is there a particular XKCD or Dilbert cartoon that seems to epitomise the bugs and problems you're encountering? Perhaps all the developers working on a particular part of the codebase have a set of in-jokes describing the way a certain class behaves itself? A kind of gallows humour about how a module is annoying to use, something that makes you cringe because it's a little too accurate?</p>
+<p>These are all clues to what might be underlying dysfunctions of your code. By paying attention to them, you might be able to spot an unexploded bomb and defuse it, before your users discover it and blow things sky-high.</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="../unexploded.html">posted at 00:00</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="../tag/legacy.html" class="tags">legacy</a>
+                    &nbsp;<a href="../tag/programming.html" class="tags">programming</a>
+                    &nbsp;<a href="../tag/codebase.html" class="tags">codebase</a>
+                </div>
+		<a href="../unexploded.html#disqus_thread">Click to read and post comments</a>
+            </article>            <h4 class="date">Sep 16, 2019</h4>
 
             <article class="post">
                 <h2 class="title">
@@ -763,145 +826,6 @@ TypeError: can&#39;t set attributes of built-in/extension type &#39;str&#39;
                     &nbsp;<a href="../tag/python.html" class="tags">Python</a>
                 </div>
 		<a href="../monkey-patching.html#disqus_thread">Click to read and post comments</a>
-            </article>            <h4 class="date">Feb 02, 2017</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="../first-ruby.html" rel="bookmark" title="Permanent Link to &quot;First Steps Exploring Ruby&quot;">First Steps Exploring Ruby</a>
-                </h2>
-
-                
-                
-
-                <p>Last night I went to the first of the <a href="https://www.meetup.com/Cambridge-Programmers-Study-Group/">Cambridge Programmers' Study Group</a> new sessions - we're starting to work through the book <a href="http://computationbook.com/">'Understanding Computation: From Simple Machines to Impossible Programs'</a> by Tom Stuart. The book uses practical exercises in Ruby to explain a bunch of theoretical computer science stuff, working up to cellular automata, Turing machines and the lambda calculus (exciting!). As Stuart's blurb explains, the book is aimed at</p>
-<blockquote>
-<p>An audience of working programmers without assuming any academic background.</p>
-</blockquote>
-<p>So, people like me.  It sounded like exactly the sort of thing I should be learning, since I don't have a Computer Science background.</p>
-<p>One small problem - very few of us in the group actually knew any Ruby! So we spent this session trying to teach ourselves using the examples in the first chapter. It was fun trying to pick up a new language in the company of other people - a lot more companionable than noodling around on your own, and easier to find out cute things about the language because if one person discovered something cool, they shared it with the group. This post will be about some of my first impressions of Ruby.</p>
-<h2>Getting Ruby set up</h2>
-<p>For those like myself who prefer more instructions than 'download Ruby online!' here's how I did it in the end:
-<code>` $ sudo apt-get install ruby-full</code> which on my Ubuntu system downloaded Ruby 2.3, which was just fine for my needs. If you use Windows or Mac I'm told the <a href="https://www.ruby-lang.org/en/documentation/installation/">instructions on the Ruby-lang website</a> are quite helpful and up-to-date. I first tried using the default terminal, irb, which you call from the command line</p>
-<div class="highlight"><pre><span></span>user@device:~$ irb
-irb(main):001:0&gt; 1+2
-=&gt; 3
-</pre></div>
-
-
-<p>This works fine for the first few exercises, but I couldn't get auto-indentation to work, important for writing multi-line programs! I tried tinkering around with adding a <code>.irbrc</code> file with <code>require 'irb/completion'</code> as recommended in the comments of the main <code>irb.rb</code> file (which I found in <code>/usr/lib/ruby/2.3.0</code>). This didn't help - perhaps I put the config file in the wrong place? I ended up just using a slightly different terminal, pry, which was recommended by a colleague at the Meetup. It does auto-indentation and colour-coding too, which was very helpful! I don't think I'll be going back to irb. To install that, I just did <code>$ gem install pry</code> (gem is Ruby's package manager). To start using it, just type <code>pry</code> in the command line. </p>
-<h2>Ruby is like Python</h2>
-<p>Ruby is similar to Python in a lot of ways - this almost hindered me as I kept getting confused between Python and Ruby syntax. It felt like trying to learn Spanish when I already knew some French - confusingly close but distinct. I think ultimately this is helpful (I was mentally translating some things to Python to understand them, and that worked quite well) but to start with it was rather confusing.</p>
-<p>Some similarities: <code>yield</code> sort of works the same</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">do_thrice</span>
-<span class="o">*</span>   <span class="n">yield</span>
-<span class="o">*</span>   <span class="n">yield</span>
-<span class="o">*</span>   <span class="n">yield</span>
-<span class="o">*</span> <span class="n">end</span>
-<span class="o">=&gt;</span> <span class="p">:</span><span class="n">do_thrice</span>
-<span class="o">&gt;&gt;</span> <span class="n">do_thrice</span> <span class="p">{</span> <span class="n">puts</span> <span class="s">&quot;Hello world!&quot;</span> <span class="p">}</span>
-<span class="no">Hello</span> <span class="n">world</span><span class="o">!</span>
-<span class="no">Hello</span> <span class="n">world</span><span class="o">!</span>
-<span class="no">Hello</span> <span class="n">world</span><span class="o">!</span>
-<span class="o">=&gt;</span> <span class="no">nil</span>
-</pre></div>
-
-
-<p>And the string formatting works <a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings">rather like Python 3.6's new f-strings</a>. So for instance, in Ruby <code>"#{x*2} and also #{y+1}"</code> gives you a string that calculates &amp; inserts those values.</p>
-<p>The <code>*</code> operator works in similar ways to unpack elements of an iterable - for instance, you can do fun things like:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-<span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-<span class="o">&gt;&gt;</span> <span class="n">b</span>
-<span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
-</pre></div>
-
-
-<h2>Ruby is not like Python</h2>
-<h4>Objects! Objects everywhere!</h4>
-<p><a href="http://rubylearning.com/blog/2010/09/27/almost-everything-is-an-object-and-everything-is-almost-an-object/">(Almost) everything is an object in Ruby</a>, and it made me realise how I usually write Python in a fairly un-Object Oriented style. I generally avoid writing classes if I can help it (<a href="https://www.youtube.com/watch?v=o9pEzgHorH0">especially classes which only contain two methods, one of which is <strong>init</strong></a> but this isn't really possible in Ruby. I suppose it's good for my soul - having a language that forces you into object-oriented thinking must make you confront what that really means. That's why there are these little <code>=&gt; nil</code> statements scattered around my code examples, by the way - irb and pry always shows you what object your statements evaluate to, and often that's <code>nil</code>, which is the object representing nothing - the 'empty' object, if you're mathematically minded.</p>
-<p>I guess I'm going to have to go read those books on Design Patterns after all...</p>
-<h4>It's super-terse</h4>
-<p>If Python cares a lot about preventing programmers having to type unecessary characters (goodbye <code>;</code> I didn't miss you) then Ruby cares even more. There are a lot of things you can do in one line. Here's a good one:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="p">|</span><span class="n">num</span><span class="p">|</span> <span class="n">num</span><span class="o">.</span><span class="n">even</span><span class="p">?</span> <span class="p">}</span>
-<span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="o">]</span>
-</pre></div>
-
-
-<p>This creates a <code>range</code> which spans the numbers 1 to 10, then looks at all the numbers in that range and, if they are even, adds them to a list and returns the list. Phew!</p>
-<p>At times, this can be confusing - for instance, there's no need to write explicit <code>return</code> statements if you don't want to. By default, Ruby returns the evaluation of the last statement in the body of a method. For instance,</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">what_do_i_return</span>
-<span class="o">*</span>   <span class="s">&quot;A&quot;</span>
-<span class="o">*</span>   <span class="s">&quot;B&quot;</span>
-<span class="o">*</span>   <span class="s">&quot;or C?&quot;</span>
-<span class="o">*</span> <span class="n">end</span>  
-<span class="o">=&gt;</span> <span class="p">:</span><span class="n">what_do_i_return</span>
-<span class="o">&gt;&gt;</span> <span class="n">what_do_i_return</span>
-<span class="o">=&gt;</span> <span class="s">&quot;or C?&quot;</span>
-</pre></div>
-
-
-<p>You <em>can</em> write explicit return statements, but you don't have to. And the way to get a function to evaluate to <a href="http://stackoverflow.com/questions/5267412/can-ruby-return-nothing">sort-of-nothing</a> is to explicitly return nil (of course!). This returning-by-default is confusing at first, but it seems to fit with the rest of Ruby's style.</p>
-<h4>'nil' isn't <em>really</em> nothing</h4>
-<p>You can put <code>nil</code> into things, which is hella confusing. For instance, suppose you have an array, you can add nil elements to it:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">my_array</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
-<span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
-<span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
-<span class="o">=&gt;</span> <span class="no">nil</span>
-<span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;d&quot;</span><span class="p">)</span>
-<span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="o">]</span>
-<span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="no">nil</span><span class="p">)</span>
-<span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="no">nil</span><span class="o">]</span>
-<span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;surprising behaviour&quot;</span>
-<span class="o">=&gt;</span> <span class="s">&quot;surprising behaviour&quot;</span>
-<span class="o">&gt;&gt;</span> <span class="n">my_array</span>
-<span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="s">&quot;surprising behaviour&quot;</span><span class="o">]</span>
-</pre></div>
-
-
-<p>Assigning to an element beyond the length of the array inserts nils until it reaches that element index (which didn't exist before!) and then it bungs in the thing you assigned. Intriguing!</p>
-<h2>Some gripes</h2>
-<h4>'Monkey patching'</h4>
-<p>Monkey patching is <em>dangerous</em>. It's the way Ruby programmers refer to the ability to dynamically modify classes 'live' - at any time. You can even do this with Ruby's built-in classes, like String. At first glance it sounds really cool - you can just go define a new class method whenever you like! For instance</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nb">String</span>
-<span class="o">*</span>    <span class="k">def</span> <span class="n">shouty</span>
-<span class="o">*</span>        <span class="n">upcase</span> <span class="o">+</span> <span class="s">&quot;!!!&quot;</span>
-<span class="o">*</span>    <span class="n">end</span>
-<span class="o">*</span> <span class="n">end</span>
-</pre></div>
-
-
-<p>adds a new 'shouty' method to strings. So now any string can use .shouty, just as if it were a built-in method</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="s">&quot;hello&quot;</span><span class="o">.</span><span class="n">shouty</span>
-<span class="o">=&gt;</span> <span class="s">&quot;HELLO!!!&quot;</span>
-</pre></div>
-
-
-<p>But here's the thing - monkey patching can break things really easily - <strong>and Ruby won't warn you about it!</strong> One of the guys sitting next to me at the meet-up managed to break his irb's Array class by redefining some of its built-in methods. Especially if you're new to Ruby and don't know all the built-in class names, it's really easy to <em>accidentally</em> monkey patch your way into disaster. It seems like a really powerful feature, but I'm not happy with how it seems to work. Perhaps with a nice Ruby IDE that reminds you about all the classes you have on-the-go, it's easier to avoid horrible mistakes?</p>
-<h4>CONSTANTS - why even bother?</h4>
-<p>'Constants' are sort-of a thing in Ruby. If you define a variable with CAPITAL LETTERS, the Ruby interpreter will give you a warning. But it won't do anything about the warning - it'll still change the 'constant' value, and just complain about it. Here's an example:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
-<span class="o">=&gt;</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
-<span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;I changed you anyways!!&quot;</span>
-<span class="p">(</span><span class="n">pry</span><span class="p">):</span><span class="mi">224</span><span class="p">:</span> <span class="nf">warning:</span> <span class="n">already</span> <span class="n">initialized</span> <span class="n">constant</span> <span class="no">CONST</span>
-<span class="p">(</span><span class="n">pry</span><span class="p">):</span><span class="mi">223</span><span class="p">:</span> <span class="nf">warning:</span> <span class="n">previous</span> <span class="n">definition</span> <span class="n">of</span> <span class="no">CONST</span> <span class="n">was</span> <span class="n">here</span>
-<span class="o">=&gt;</span> <span class="s">&quot;I changed you anyways!!&quot;</span>
-</pre></div>
-
-
-<p>What's the <em>point</em> of having this feature? Can we perhaps write larger programs that will catch this warning and not change the constant (well, and change it back, since we warn but change things anyway)? <a href="http://stackoverflow.com/questions/660737/can-you-ask-ruby-to-treat-warnings-as-errors">Basically not at all</a>, apparently! I'm happy to be enlightened by some Ruby-god but as far as I can tell, this feature does nothing except confuse people used to programming in languages where constants exist and are, well, constant.</p>
-<h1>Overall Impressions</h1>
-<p>I found that during the session I fluctuated between delight ("what a nice way to do that!") and terror/annoyance as things behaved in unexpected ways. It has some peculiarities that particularly stand out to me in comparison with Python, and some features that are just adorably cute. I've been noodling around with it on and off all day today, and still enjoying getting to know it. Overall I'd say it's been fun! I can't say that I'm dying to use it as my new scripting language, but I'll certainly be pleased to become better acquainted as we work our way through the Computation book.</p>
-<h4>PS</h4>
-<p>Thanks again to <a href="http://www.red-gate.com/">RedGate</a> for hosting the session and feeding pizza to 20+ hungry programmers!</p>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="../first-ruby.html">posted at 00:00</a>
-                    &nbsp;&middot;
-                    &nbsp;<a href="../tag/ruby.html" class="tags">Ruby</a>
-                    &nbsp;<a href="../tag/understanding-computation.html" class="tags">Understanding Computation</a>
-                    &nbsp;<a href="../tag/cpsg.html" class="tags">CPSG</a>
-                </div>
-		<a href="../first-ruby.html#disqus_thread">Click to read and post comments</a>
             </article>
 
                 <div class="clear"></div>

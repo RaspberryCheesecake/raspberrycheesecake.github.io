@@ -32,7 +32,146 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Jan 25, 2017</h4>
+        <div id="content">            <h4 class="date">Feb 02, 2017</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="./first-ruby.html" rel="bookmark" title="Permanent Link to &quot;First Steps Exploring Ruby&quot;">First Steps Exploring Ruby</a>
+                </h2>
+
+                
+                
+
+                <p>Last night I went to the first of the <a href="https://www.meetup.com/Cambridge-Programmers-Study-Group/">Cambridge Programmers' Study Group</a> new sessions - we're starting to work through the book <a href="http://computationbook.com/">'Understanding Computation: From Simple Machines to Impossible Programs'</a> by Tom Stuart. The book uses practical exercises in Ruby to explain a bunch of theoretical computer science stuff, working up to cellular automata, Turing machines and the lambda calculus (exciting!). As Stuart's blurb explains, the book is aimed at</p>
+<blockquote>
+<p>An audience of working programmers without assuming any academic background.</p>
+</blockquote>
+<p>So, people like me.  It sounded like exactly the sort of thing I should be learning, since I don't have a Computer Science background.</p>
+<p>One small problem - very few of us in the group actually knew any Ruby! So we spent this session trying to teach ourselves using the examples in the first chapter. It was fun trying to pick up a new language in the company of other people - a lot more companionable than noodling around on your own, and easier to find out cute things about the language because if one person discovered something cool, they shared it with the group. This post will be about some of my first impressions of Ruby.</p>
+<h2>Getting Ruby set up</h2>
+<p>For those like myself who prefer more instructions than 'download Ruby online!' here's how I did it in the end:
+<code>` $ sudo apt-get install ruby-full</code> which on my Ubuntu system downloaded Ruby 2.3, which was just fine for my needs. If you use Windows or Mac I'm told the <a href="https://www.ruby-lang.org/en/documentation/installation/">instructions on the Ruby-lang website</a> are quite helpful and up-to-date. I first tried using the default terminal, irb, which you call from the command line</p>
+<div class="highlight"><pre><span></span>user@device:~$ irb
+irb(main):001:0&gt; 1+2
+=&gt; 3
+</pre></div>
+
+
+<p>This works fine for the first few exercises, but I couldn't get auto-indentation to work, important for writing multi-line programs! I tried tinkering around with adding a <code>.irbrc</code> file with <code>require 'irb/completion'</code> as recommended in the comments of the main <code>irb.rb</code> file (which I found in <code>/usr/lib/ruby/2.3.0</code>). This didn't help - perhaps I put the config file in the wrong place? I ended up just using a slightly different terminal, pry, which was recommended by a colleague at the Meetup. It does auto-indentation and colour-coding too, which was very helpful! I don't think I'll be going back to irb. To install that, I just did <code>$ gem install pry</code> (gem is Ruby's package manager). To start using it, just type <code>pry</code> in the command line. </p>
+<h2>Ruby is like Python</h2>
+<p>Ruby is similar to Python in a lot of ways - this almost hindered me as I kept getting confused between Python and Ruby syntax. It felt like trying to learn Spanish when I already knew some French - confusingly close but distinct. I think ultimately this is helpful (I was mentally translating some things to Python to understand them, and that worked quite well) but to start with it was rather confusing.</p>
+<p>Some similarities: <code>yield</code> sort of works the same</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">do_thrice</span>
+<span class="o">*</span>   <span class="n">yield</span>
+<span class="o">*</span>   <span class="n">yield</span>
+<span class="o">*</span>   <span class="n">yield</span>
+<span class="o">*</span> <span class="n">end</span>
+<span class="o">=&gt;</span> <span class="p">:</span><span class="n">do_thrice</span>
+<span class="o">&gt;&gt;</span> <span class="n">do_thrice</span> <span class="p">{</span> <span class="n">puts</span> <span class="s">&quot;Hello world!&quot;</span> <span class="p">}</span>
+<span class="no">Hello</span> <span class="n">world</span><span class="o">!</span>
+<span class="no">Hello</span> <span class="n">world</span><span class="o">!</span>
+<span class="no">Hello</span> <span class="n">world</span><span class="o">!</span>
+<span class="o">=&gt;</span> <span class="no">nil</span>
+</pre></div>
+
+
+<p>And the string formatting works <a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings">rather like Python 3.6's new f-strings</a>. So for instance, in Ruby <code>"#{x*2} and also #{y+1}"</code> gives you a string that calculates &amp; inserts those values.</p>
+<p>The <code>*</code> operator works in similar ways to unpack elements of an iterable - for instance, you can do fun things like:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<span class="o">&gt;&gt;</span> <span class="n">b</span>
+<span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+</pre></div>
+
+
+<h2>Ruby is not like Python</h2>
+<h4>Objects! Objects everywhere!</h4>
+<p><a href="http://rubylearning.com/blog/2010/09/27/almost-everything-is-an-object-and-everything-is-almost-an-object/">(Almost) everything is an object in Ruby</a>, and it made me realise how I usually write Python in a fairly un-Object Oriented style. I generally avoid writing classes if I can help it (<a href="https://www.youtube.com/watch?v=o9pEzgHorH0">especially classes which only contain two methods, one of which is <strong>init</strong></a> but this isn't really possible in Ruby. I suppose it's good for my soul - having a language that forces you into object-oriented thinking must make you confront what that really means. That's why there are these little <code>=&gt; nil</code> statements scattered around my code examples, by the way - irb and pry always shows you what object your statements evaluate to, and often that's <code>nil</code>, which is the object representing nothing - the 'empty' object, if you're mathematically minded.</p>
+<p>I guess I'm going to have to go read those books on Design Patterns after all...</p>
+<h4>It's super-terse</h4>
+<p>If Python cares a lot about preventing programmers having to type unecessary characters (goodbye <code>;</code> I didn't miss you) then Ruby cares even more. There are a lot of things you can do in one line. Here's a good one:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="p">|</span><span class="n">num</span><span class="p">|</span> <span class="n">num</span><span class="o">.</span><span class="n">even</span><span class="p">?</span> <span class="p">}</span>
+<span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="o">]</span>
+</pre></div>
+
+
+<p>This creates a <code>range</code> which spans the numbers 1 to 10, then looks at all the numbers in that range and, if they are even, adds them to a list and returns the list. Phew!</p>
+<p>At times, this can be confusing - for instance, there's no need to write explicit <code>return</code> statements if you don't want to. By default, Ruby returns the evaluation of the last statement in the body of a method. For instance,</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="n">what_do_i_return</span>
+<span class="o">*</span>   <span class="s">&quot;A&quot;</span>
+<span class="o">*</span>   <span class="s">&quot;B&quot;</span>
+<span class="o">*</span>   <span class="s">&quot;or C?&quot;</span>
+<span class="o">*</span> <span class="n">end</span>  
+<span class="o">=&gt;</span> <span class="p">:</span><span class="n">what_do_i_return</span>
+<span class="o">&gt;&gt;</span> <span class="n">what_do_i_return</span>
+<span class="o">=&gt;</span> <span class="s">&quot;or C?&quot;</span>
+</pre></div>
+
+
+<p>You <em>can</em> write explicit return statements, but you don't have to. And the way to get a function to evaluate to <a href="http://stackoverflow.com/questions/5267412/can-ruby-return-nothing">sort-of-nothing</a> is to explicitly return nil (of course!). This returning-by-default is confusing at first, but it seems to fit with the rest of Ruby's style.</p>
+<h4>'nil' isn't <em>really</em> nothing</h4>
+<p>You can put <code>nil</code> into things, which is hella confusing. For instance, suppose you have an array, you can add nil elements to it:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">my_array</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
+<span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">]</span>
+<span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="o">=&gt;</span> <span class="no">nil</span>
+<span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;d&quot;</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="o">]</span>
+<span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="no">nil</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="no">nil</span><span class="o">]</span>
+<span class="o">&gt;&gt;</span> <span class="n">my_array</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;surprising behaviour&quot;</span>
+<span class="o">=&gt;</span> <span class="s">&quot;surprising behaviour&quot;</span>
+<span class="o">&gt;&gt;</span> <span class="n">my_array</span>
+<span class="o">=&gt;</span> <span class="o">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="s">&quot;surprising behaviour&quot;</span><span class="o">]</span>
+</pre></div>
+
+
+<p>Assigning to an element beyond the length of the array inserts nils until it reaches that element index (which didn't exist before!) and then it bungs in the thing you assigned. Intriguing!</p>
+<h2>Some gripes</h2>
+<h4>'Monkey patching'</h4>
+<p>Monkey patching is <em>dangerous</em>. It's the way Ruby programmers refer to the ability to dynamically modify classes 'live' - at any time. You can even do this with Ruby's built-in classes, like String. At first glance it sounds really cool - you can just go define a new class method whenever you like! For instance</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nb">String</span>
+<span class="o">*</span>    <span class="k">def</span> <span class="n">shouty</span>
+<span class="o">*</span>        <span class="n">upcase</span> <span class="o">+</span> <span class="s">&quot;!!!&quot;</span>
+<span class="o">*</span>    <span class="n">end</span>
+<span class="o">*</span> <span class="n">end</span>
+</pre></div>
+
+
+<p>adds a new 'shouty' method to strings. So now any string can use .shouty, just as if it were a built-in method</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="s">&quot;hello&quot;</span><span class="o">.</span><span class="n">shouty</span>
+<span class="o">=&gt;</span> <span class="s">&quot;HELLO!!!&quot;</span>
+</pre></div>
+
+
+<p>But here's the thing - monkey patching can break things really easily - <strong>and Ruby won't warn you about it!</strong> One of the guys sitting next to me at the meet-up managed to break his irb's Array class by redefining some of its built-in methods. Especially if you're new to Ruby and don't know all the built-in class names, it's really easy to <em>accidentally</em> monkey patch your way into disaster. It seems like a really powerful feature, but I'm not happy with how it seems to work. Perhaps with a nice Ruby IDE that reminds you about all the classes you have on-the-go, it's easier to avoid horrible mistakes?</p>
+<h4>CONSTANTS - why even bother?</h4>
+<p>'Constants' are sort-of a thing in Ruby. If you define a variable with CAPITAL LETTERS, the Ruby interpreter will give you a warning. But it won't do anything about the warning - it'll still change the 'constant' value, and just complain about it. Here's an example:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
+<span class="o">=&gt;</span> <span class="s">&quot;Don&#39;t change me please&quot;</span>
+<span class="o">&gt;&gt;</span> <span class="no">CONST</span> <span class="o">=</span> <span class="s">&quot;I changed you anyways!!&quot;</span>
+<span class="p">(</span><span class="n">pry</span><span class="p">):</span><span class="mi">224</span><span class="p">:</span> <span class="nf">warning:</span> <span class="n">already</span> <span class="n">initialized</span> <span class="n">constant</span> <span class="no">CONST</span>
+<span class="p">(</span><span class="n">pry</span><span class="p">):</span><span class="mi">223</span><span class="p">:</span> <span class="nf">warning:</span> <span class="n">previous</span> <span class="n">definition</span> <span class="n">of</span> <span class="no">CONST</span> <span class="n">was</span> <span class="n">here</span>
+<span class="o">=&gt;</span> <span class="s">&quot;I changed you anyways!!&quot;</span>
+</pre></div>
+
+
+<p>What's the <em>point</em> of having this feature? Can we perhaps write larger programs that will catch this warning and not change the constant (well, and change it back, since we warn but change things anyway)? <a href="http://stackoverflow.com/questions/660737/can-you-ask-ruby-to-treat-warnings-as-errors">Basically not at all</a>, apparently! I'm happy to be enlightened by some Ruby-god but as far as I can tell, this feature does nothing except confuse people used to programming in languages where constants exist and are, well, constant.</p>
+<h1>Overall Impressions</h1>
+<p>I found that during the session I fluctuated between delight ("what a nice way to do that!") and terror/annoyance as things behaved in unexpected ways. It has some peculiarities that particularly stand out to me in comparison with Python, and some features that are just adorably cute. I've been noodling around with it on and off all day today, and still enjoying getting to know it. Overall I'd say it's been fun! I can't say that I'm dying to use it as my new scripting language, but I'll certainly be pleased to become better acquainted as we work our way through the Computation book.</p>
+<h4>PS</h4>
+<p>Thanks again to <a href="http://www.red-gate.com/">RedGate</a> for hosting the session and feeding pizza to 20+ hungry programmers!</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="./first-ruby.html">posted at 00:00</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="./tag/ruby.html" class="tags">Ruby</a>
+                    &nbsp;<a href="./tag/understanding-computation.html" class="tags">Understanding Computation</a>
+                    &nbsp;<a href="./tag/cpsg.html" class="tags">CPSG</a>
+                </div>
+		<a href="./first-ruby.html#disqus_thread">Click to read and post comments</a>
+            </article>            <h4 class="date">Jan 25, 2017</h4>
 
             <article class="post">
                 <h2 class="title">
