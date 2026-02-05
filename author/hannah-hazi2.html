@@ -33,7 +33,46 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Dec 31, 2017</h4>
+        <div id="content">            <h4 class="date">Feb 10, 2019</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="../flex-and-bison.html" rel="bookmark" title="Permanent Link to &quot;Flex and Bison&quot;">Flex and Bison</a>
+                </h2>
+
+                
+                
+
+                <p>I recently started to learn about <code>flex</code> and <code>Bison</code> - a set of parser creation tools for C, C++ and Java. By specifying the grammar and rules for parsing inside two files, <code>blah.y</code> and <code>blah.l</code>, the <code>flex</code> and <code>bison</code> command-line Linux tools will auto-generate an appropriate parser in your chosen language. As you might imagine, this is very handy. </p>
+<p>Since it's generally better to show rather than tell when it comes to software tools, <a href="https://github.com/RaspberryCheesecake/flexible-bison/blob/master/README.md">here's a toy project I've been playing with</a> in which I'm using them to parse GCODE. </p>
+<p>The <code>flex</code> part is what's called a <em>lexical analyser</em> - it uses regular expressions to split the input into <em>tokens</em>. These tokens are used to generate a parser with the <code>Bison</code> part, which is the grammar that tells the parser what do do when certain tokens are read side by side.</p>
+<p>What particularly struck me about these tools was just how old they are. </p>
+<p><img alt="Elegant weapons ... " src="../images/lisp_cycles.png"> </p>
+<p><code>Bison</code> is a descendant of a tool called <code>Yacc</code> (Yet Another Compiler Compiler) which was developed by Steven Johnson working for Bell Labs back in the early 1970s, inspired by Donald Knuth's work on <a href="https://en.wikipedia.org/wiki/LR_parser">LR parsing</a>. It has been rewritten in many different languages over the years, but the most popular implementation these days is probably <code>Bison</code>, which dates back to 1985, when it was worked on by Robert Corbett. Richard Stallman (yes, that Richard Stallman) made the <code>GNU-Bison</code> tool <code>Yacc</code>-compatible.</p>
+<p><code>Flex</code> meanwhile was written in C by Vern Paxson in 1987, tranlating an older tool called <code>Lex</code>. <code>Lex</code> was originally written by Mike Lesk and Eric Schmidt, and <a href="https://www.epaperpress.com/lexandyacc/download/lex.pdf">described in a paper</a> by them in 1975. It was initially written in <code>ratfor</code>, an extended version of Fortran popular at the time.As they point out in the paper:</p>
+<blockquote>
+<p>"As  should  be  obvious  from  the  above,  the outside of Lex is patterned on Yacc and the inside on  Aho’s  string  matching  routines. Therefore, both S. C. Johnson and A. V. Aho are really originators of much of Lex, as well as debuggers of it. Many thanks are due to both. The code of the current version of Lex was designed, written, and debugged by Eric Schmidt"</p>
+</blockquote>
+<p>As you might expect of such venerable tools, they have some excellent tutorials on their use, including an O'Reilly book <a href="https://www.oreilly.com/library/view/flex-bison/9780596805418/">"flex &amp; bison"</a> - which itself is the "long awaited sequel" to the O'Reilly classic, "lex &amp; yacc". Those who teach in depth about these tools or about parsing are in some danger of <a href="https://www.dabeaz.com/ply/">re-writing them even more nicely in a favourite language</a> - the linked example is PLY, which was originally developed in 2001 for use in an Introduction to Compilers course where students used it to build a compiler for a Pascal-like language.</p>
+<p>I'm fascinated by how tools like this have survived and thrived over what, to computer science, is an enormous amount of time. Perhaps it is because they are beautiful - they have some inherent quality that shines out, no matter what language they happen to be in. I was re-reading the interview with Fran Allen in 'Coders At Work' about beautiful code, and it really resonated.</p>
+<blockquote>
+<p><em>Allen</em>: One of the things I remember really enjoying is reading the original program - and considering it very elegant. That captured me because it was quite a sophisticated program written by someone who had been in the field a while - Roy Nutt. It was beautifully written.
+<em>Seibel</em>: What makes a program beautiful?
+<em>Allen</em>: That it is a simple straightforward solution to a problem; that has some intrinsic structure and an obviousness about it that isn't obvious from the problem itself. I picked up probably a new habit from that of learning about programming and learning about a new language by taking an existing program and studying it.
+<em>Seibel</em>: How do you read code? Let's say you're going to learn a new language and you find a program to read - how do you attack it?
+<em>Allen</em>: Well, one example was one of my employees had built a parser. This was later on for the PTRAN project. And I wanted to understand his methods. It's actually probably the best parser in the world - now it's out in open source, and it's really an extraordinary parser that can do error correction in flight. I wanted to understand it, so I took it and I read it. And I knew that Phillipe Charles, the man who had written it, was a beautiful programmer. The way I would approach understanding a new language or a new implementation of some very complex problem would be to take a program from somebody that I knew was a great programmer, and read it.</p>
+</blockquote>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="../flex-and-bison.html">posted at 00:00</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="../tag/parsing.html" class="tags">Parsing</a>
+                    &nbsp;<a href="../tag/c.html" class="tags">C</a>
+                    &nbsp;<a href="../tag/c.html" class="tags">C++</a>
+                    &nbsp;<a href="../tag/tools.html" class="tags">Tools</a>
+                </div>
+            </article>            <h4 class="date">Dec 31, 2017</h4>
 
             <article class="post">
                 <h2 class="title">
@@ -858,88 +897,6 @@ Hallo!!
                     &nbsp;<a href="../tag/classes.html" class="tags">classes</a>
                     &nbsp;<a href="../tag/talks.html" class="tags">talks</a>
                 </div>
-            </article>            <h4 class="date">Jan 17, 2017</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="../exciting-first-post.html" rel="bookmark" title="Permanent Link to &quot;Moving to Pelican&quot;">Moving to Pelican</a>
-                </h2>
-
-                
-                
-
-                <p>I decided to make a personal website a while back, to play around with web stuff for the first time. Taking the path of least resistance I used Github Pages - they give you a free 'Personal' static website which is rather nice. I cobbled together some CSS and HTML and made something that looked as if it had emerged from the 90s. It was perfectly fine for what I wanted to do, which was host little JavaScript games I was playing with writing - I had never written JavaScript before and wanted to give it a try.</p>
-<p>Now I'd like to make this website into a blogging platform, and make it look a bit better, too. Rather than hand-coding everything from scratch (and still having something that looks as if it emerged from the 90s), I wanted to start out with something I can modify for myself with only a bit of effort. </p>
-<p>I explored a bewildering range of different static website generators, trying to work out what I should use. According to <a href="https://www.staticgen.com/">this list</a> there are over 100 of these out in the wild now! Even narrowing myself down to only the Python flavours (on the theory that I want to be able to tinker deeply with the webpages I create) left me with far too much to choose from. So I asked around friends and on the advice of <a href="http://mcla.ug">Hannah McLaughlin</a> I went for Pelican.</p>
-<p>Getting Pelican up and running was not as easy as the docs would like you to believe (ah, if only...). So as nearly all first-time Pelican users must do, if the examples in the <a href="www.pelicanthemes.com">Pelican Themes</a> page are anything to go by, my first blog post here will be a tutorial - mostly for my own reference - on how to use Pelican. I found that <a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html">Amy Hanlon's post on the subject</a> was most helpful, as she doesn't tend to assume any 'obvious' prior knowledge from the reader.</p>
-<h1>First Steps</h1>
-<p>In the terminal, set up a new virtual environment for all your Pelican business (good practice). Then make a directory for the website and initialise Pelican in there. These steps went without incident.</p>
-<div class="highlight"><pre><span></span>mkvirtualenv pelican
-setvirtualenvproject
-workon pelican
-
-pip install pelican
-pip install Markdown
-mkdir Website
-cd Website
-pelican-quickstart
-</pre></div>
-
-
-<p>Pelican's quickstart does allow you to get off the ground pretty fast by setting things up the way you'd like after asking a series of questions. There was an option to say I wanted to upload my site using GitHub Pages - perfect. Say 'yes' to <code>auto-reload &amp; simple HTTP script to assist with developing theme</code> and to <code>create Fabfile/Makerfile</code>. It spits out some basics:</p>
-<div class="highlight"><pre><span></span>content            Makefile        pelicanconf.pyc
-develop_server.sh  output          publishconf.py
-fabfile.py         pelicanconf.py  
-</pre></div>
-
-
-<p><code>pelicanconf.py</code> is where your local configuration sits - that's what you want to alter when you're tweaking the webpages you display. <code>publishconf.py</code> is the file that deals with published web pages, eg analytics etc - we're not going to mess with that. <code>content</code> is the folder where you bung all your Markdown (.md) or reStructuredText (.rst) files for all those great blog posts. Pelican will also recognise the folder names <code>images</code> and <code>pages</code> automatically - these are where your pictures and the different webpages you create (aside from the blog posts) will go. <code>output</code> is the folder where the final CSS and HTML live, and it's the part that should be posted to wherever you're doing your web hosting.</p>
-<h1>Problem 1 - no Themes</h1>
-<p>I try and host my new website locally to see what it looks like - and it looks like crap! It's because I don't have any of the lovely themes loaded. I try exactly what the Pelican Themes page recommends: <code>git clone themes into ~/home/user/pelican-themes</code> and add a line in the <code>pelicanconf.py</code> file, like so:</p>
-<div class="highlight"><pre><span></span>THEMES = &quot;/home/user/pelican-themes/blue-penguin&quot;
-</pre></div>
-
-
-<p>Sanity check: do I have any themes installed?</p>
-<div class="highlight"><pre><span></span>(pelican)sandmanuser@sandman-VirtualBox:~/Website$ pelican-themes -l
-notmyidea
-simple
-</pre></div>
-
-
-<p>No. How strange. I did clone pelican-themes locally:</p>
-<div class="highlight"><pre><span></span>git clone https://github.com/getpelican/pelican-themes
-</pre></div>
-
-
-<p>But since I didn't clone <code>--recursive</code>ly, the actual configuration files for each theme weren't copied. When I go in and look, it's just a bunch of empty folders. Yes, because now when I try to clone it takes <em>forever</em>! Now we're cooking on gas, and when I run <code>make html</code> and then <code>make serve</code> I see that it's looking pretty. Ctrl+C stops the server.</p>
-<h1>Problem 2 - not updating local server</h1>
-<p>I discover what must be another common problem - I go change a webpage to try something else out, hit <code>make serve</code> and find that it won't run:</p>
-<div class="highlight"><pre><span></span>socket.error: [Errno 98] Address already in use
-Makefile:77: recipe for target &#39;serve&#39; failed
-make: *** [serve] Error 1
-</pre></div>
-
-
-<p>Woops! Looks like I didn't actually switch off the server I made to try things out - it was still running in the background. It turns out the nicest way of dealing with this is to use the shell script they've kindly made for you - just run
-<code>./develop_server.sh start</code> and <code>./develop_server.sh stop</code>
-to start the development server and stop it again nicely. This also updates your webpages locally live - as soon as you make and save a change to them, the development server updates your webpage so you can see how things look in real time.</p>
-<h1>Why didn't you tell the world?</h1>
-<p>So far this website is only working on a little server-in-a-bottle we've created in our own computer. Time to take it to the web! Since I'm hosting my site with GitHub Pages, my user site on GitHub is where I'm going to push the contents of my <code>output</code> folder to. </p>
-<p>I'm going to create a separate repository for the rest so I can back up my Markdown files, tweak my Theme and rebuild the website from different computers.</p>
-<p>This requires a little careful thought when it comes to <code>.gitignore</code> and how we refresh the <code>output</code> folder. </p>
-<h1>And once you've gotten everything working...</h1>
-<p>You might want to do a freeze to capture the packages you installed &amp; make it easier on yourself moving to another computer.</p>
-<div class="highlight"><pre><span></span>pip freeze &gt; requirements.txt
-</pre></div>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="../exciting-first-post.html">posted at 00:00</a>
-                    &nbsp;&middot;&nbsp;<a href="../category/web-stuff.html" rel="tag">Web stuff</a>
-                    &nbsp;&middot;
-                    &nbsp;<a href="../tag/first.html" class="tags">first</a>
-                </div>
             </article>
 
                 <div class="clear"></div>
@@ -947,8 +904,9 @@ to start the development server and stop it again nicely. This also updates your
 
                     <a href="../author/hannah-hazi.html" class="prev_page">&larr;&nbsp;Previous</a>
 
+                    <a href="../author/hannah-hazi3.html" class="next_page">Next&nbsp;&rarr;</a>
 
-                    <span>Page 2 of 2</span>
+                    <span>Page 2 of 3</span>
                 </div>
 
             <div class="clear"></div>
